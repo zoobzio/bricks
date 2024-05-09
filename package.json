@@ -1,0 +1,16 @@
+{
+	"devDependencies": {
+		"@nuxt/kit": "^3.11.2",
+		"unbuild": "^2.0.0"
+	},
+	"dependencies": {
+		"@unocss/nuxt": "^0.60.0",
+		"@untheme/colors": "^0.0.30",
+		"@untheme/nuxt": "^0.0.30",
+		"nuxt": "^3.11.2",
+		"radix-vue": "^1.7.4",
+		"unocss": "^0.60.0",
+		"unocss-preset-untheme": "^0.0.30",
+		"untheme": "^0.0.30"
+	}
+}
