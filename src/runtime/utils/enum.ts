@@ -1,4 +1,4 @@
-// @ts-expect-error 
+// @ts-expect-error
 import enums from "#build/enums.config.mjs";
 
 export type Enum = keyof typeof enums;

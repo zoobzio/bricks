@@ -1,4 +1,4 @@
-// @ts-expect-error 
+// @ts-expect-error
 import constants from "#build/constants.config.mjs";
 
 export type Constant = keyof typeof constants;

@@ -1,4 +1,10 @@
-import { defineNuxtModule, createResolver, addTemplate, addComponentsDir, addImportsDir } from "@nuxt/kit";
+import {
+  defineNuxtModule,
+  createResolver,
+  addTemplate,
+  addComponentsDir,
+  addImportsDir,
+} from "@nuxt/kit";
 
 export * from "./config";
 
@@ -21,8 +27,8 @@ export default defineNuxtModule({
       import icons from "${nuxt.options.srcDir}/${"icons.config"}";
       export default icons;`,
     });
-    
-    // enums 
+
+    // enums
     addTemplate({
       filename: "enums.config.mjs",
       getContents: () => `
@@ -30,21 +36,21 @@ export default defineNuxtModule({
       export default enums;`,
     });
 
-    // constants 
+    // constants
     addTemplate({
       filename: "constants.config.mjs",
       getContents: () => `
       import constants from "${nuxt.options.srcDir}/${"constants.config"}";
       export default constants;`,
-    })
+    });
 
-    // components 
+    // components
     addComponentsDir({
       path: resolve("./runtime/components"),
-      prefix, 
+      prefix,
     });
 
     // utils
     addImportsDir(resolve("./runtime/utils"));
-  }
-})
+  },
+});
