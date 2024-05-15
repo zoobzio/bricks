@@ -1,7 +1,15 @@
-export type ConstantTemplate = Record<string, string | number>;
+export type ConstantConfig = {
+  [key: string]: string | number;
+};
 
-export function defineConstants<Constants extends ConstantTemplate>(
-  config: Constants,
+export function defineConstants<Constants extends ConstantConfig>(
+  constants: Constants,
 ) {
-  return config;
+  return constants;
+}
+
+export function applyConstants<Constants extends ConstantConfig>(
+  constants: Constants,
+) {
+  return <Key extends keyof typeof constants>(key: Key) => constants[key];
 }

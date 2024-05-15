@@ -1,12 +1,11 @@
-export type EnumValue<K = unknown> = {
-  key: K extends string ? K : string;
-  label: string;
+export type EnumConfig = {
+  [key: string]: string[] | number[];
 };
 
-export type EnumConfig<Enum extends string> = {
-  [E in Enum]: EnumValue[];
-};
+export function defineEnums<Enums extends EnumConfig>(enums: Enums) {
+  return enums;
+}
 
-export function defineEnums<Enum extends string>(config: EnumConfig<Enum>) {
-  return config;
+export function applyEnums<Enums extends EnumConfig>(enums: Enums) {
+  return <Key extends keyof typeof enums>(key: Key) => enums[key];
 }

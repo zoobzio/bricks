@@ -1,0 +1,11 @@
+{
+  "name": "playground",
+  "scripts": {
+    "dev": "nuxi dev",
+    "postinstall": "nuxi prepare"
+  },
+  "dependencies": {
+    "nuxt": "^3.11.2",
+    "@zoobzio/bricks": "link:../"
+  }
+}

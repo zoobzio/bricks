@@ -1,8 +1,9 @@
 // @ts-expect-error
 import enums from "#build/enums.config.mjs";
+import type { Enums } from "#build/types/enums.d.ts";
+import { applyEnums } from "../../src/config";
 
-export type Enum = keyof typeof enums;
+type Enum = keyof Enums;
 
-export function useEnum(key: Enum) {
-  return enums[key];
-}
+export type { Enums, Enum };
+export const useEnum = applyEnums(enums as Enums);

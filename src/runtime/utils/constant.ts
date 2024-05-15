@@ -1,8 +1,9 @@
 // @ts-expect-error
 import constants from "#build/constants.config.mjs";
+import type { Constants } from "#build/types/constants.d.ts";
+import { applyConstants } from "../../src/config";
 
-export type Constant = keyof typeof constants;
+type Constant = keyof Constants;
 
-export function useConstant(key: Constant) {
-  return constants[key];
-}
+export type { Constants, Constant };
+export const useConstant = applyConstants(constants as Constants);

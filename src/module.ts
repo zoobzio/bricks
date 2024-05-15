@@ -4,6 +4,7 @@ import {
   addTemplate,
   addComponentsDir,
   addImportsDir,
+  addTypeTemplate,
 } from "@nuxt/kit";
 
 export * from "./config";
@@ -20,28 +21,23 @@ export default defineNuxtModule({
   setup({ prefix }, nuxt) {
     const { resolve } = createResolver(import.meta.url);
 
-    // icons
-    addTemplate({
-      filename: "icons.config.mjs",
-      getContents: () => `
-      import icons from "${nuxt.options.srcDir}/${"icons.config"}";
-      export default icons;`,
-    });
-
-    // enums
-    addTemplate({
-      filename: "enums.config.mjs",
-      getContents: () => `
-      import enums from "${nuxt.options.srcDir}/${"enums.config"}";
-      export default enums;`,
-    });
-
-    // constants
-    addTemplate({
-      filename: "constants.config.mjs",
-      getContents: () => `
-      import constants from "${nuxt.options.srcDir}/${"constants.config"}";
-      export default constants;`,
+    // common configurations
+    const common = ["constants", "enums", "icons", "options"];
+    common.forEach((key) => {
+      addTemplate({
+        filename: `${key}.config.mjs`,
+        getContents: () => `
+        import ${key} from "${nuxt.options.srcDir}/${key}.config";
+        export default ${key};`,
+      });
+      addTypeTemplate({
+        filename: `types/${key}.d.ts`,
+        getContents: () => `
+        import ${key} from "${nuxt.options.srcDir}/${key}.config";
+        export type ${
+          key.charAt(0).toUpperCase() + key.slice(1)
+        } = typeof ${key};`,
+      });
     });
 
     // components
