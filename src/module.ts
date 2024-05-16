@@ -13,10 +13,13 @@ export interface BricksNuxtOptions {
   prefix?: string;
 }
 
-export default defineNuxtModule({
+export default defineNuxtModule<BricksNuxtOptions>({
   meta: {
     name: "@zoobzio/bricks",
     configKey: "bricks",
+  },
+  defaults: {
+    prefix: "z",
   },
   setup({ prefix }, nuxt) {
     const { resolve } = createResolver(import.meta.url);
@@ -48,5 +51,8 @@ export default defineNuxtModule({
 
     // utils
     addImportsDir(resolve("./runtime/utils"));
+
+    // themes
+    addImportsDir(`${nuxt.options.srcDir}/themes`);
   },
 });

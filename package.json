@@ -45,6 +45,7 @@
     "nuxt": "^3.11.2",
     "playground": "link:.playground",
     "radix-vue": "^1.7.4",
+    "tailwind-variants": "^0.2.1",
     "unocss": "^0.60.0",
     "unocss-preset-untheme": "^0.0.30",
     "untheme": "^0.0.30"

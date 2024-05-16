@@ -3,13 +3,13 @@ export type ConstantConfig = {
 };
 
 export function defineConstants<Constants extends ConstantConfig>(
-  constants: Constants,
+  constants: Constants
 ) {
   return constants;
 }
 
 export function applyConstants<Constants extends ConstantConfig>(
-  constants: Constants,
+  constants: Constants
 ) {
   return <Key extends keyof typeof constants>(key: Key) => constants[key];
 }
