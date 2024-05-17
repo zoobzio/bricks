@@ -15,11 +15,11 @@ dependencies:
     specifier: ^0.60.0
     version: 0.60.0(postcss@8.4.38)(rollup@3.29.4)(vite@5.2.11)(webpack@5.91.0)
   '@untheme/colors':
-    specifier: ^0.0.30
-    version: 0.0.30
+    specifier: ^0.0.31
+    version: 0.0.31
   '@untheme/nuxt':
-    specifier: ^0.0.30
-    version: 0.0.30(rollup@3.29.4)
+    specifier: ^0.0.31
+    version: 0.0.31(rollup@3.29.4)
   defu:
     specifier: ^6.1.4
     version: 6.1.4
@@ -36,11 +36,11 @@ dependencies:
     specifier: ^0.60.0
     version: 0.60.0(@unocss/webpack@0.60.0)(postcss@8.4.38)(rollup@3.29.4)(vite@5.2.11)
   unocss-preset-untheme:
-    specifier: ^0.0.30
-    version: 0.0.30
+    specifier: ^0.0.31
+    version: 0.0.31
   untheme:
-    specifier: ^0.0.30
-    version: 0.0.30
+    specifier: ^0.0.31
+    version: 0.0.31
 
 devDependencies:
   eslint:
@@ -2517,23 +2517,24 @@ packages:
       - rollup
     dev: false
 
-  /@untheme/colors@0.0.30:
-    resolution: {integrity: sha512-PpzM7OD6eGSOOs8pT2hGVCKCdzy1fFwPKWVpyyXTnF6M+E8kH8iubymQX6qzbO3rCTDu0S5C27RnVT5L+X2WvQ==}
+  /@untheme/colors@0.0.31:
+    resolution: {integrity: sha512-6/ofCFwChi3qP1bdyWbh4tLu0ARGRfWx1d9SVmJT/zIiRnj/in6oAeNDWbTmdj/T/L5JT34zc3fE4VDS4JLdkQ==}
     dependencies:
-      '@untheme/kit': 0.0.30
+      '@untheme/kit': 0.0.31
     dev: false
 
-  /@untheme/kit@0.0.30:
-    resolution: {integrity: sha512-p2ilkeDfJgh6Tp9D5oDJTO+QVwcalYiMMOZR+ZwUb5kC8lTD64IBc0ITHl2X8QdoALE3z0LoL9m6080P29moGA==}
+  /@untheme/kit@0.0.31:
+    resolution: {integrity: sha512-e4fclNVtoykoM1gVM2xNkIaUGSGA6Hd1v4qJnsMMazZtrdT+oJ65xx4taLGCawtspnL3vH9EZZbY83b2BIe8iQ==}
     dev: false
 
-  /@untheme/nuxt@0.0.30(rollup@3.29.4):
-    resolution: {integrity: sha512-f82dVARgxzqU18y+16hKKn8jDK0vcFF7GpXi0N/xRTPFChmDnBvZklDZY8uLlEb4hgohRLCqyBpAA5W4q5RPGw==}
+  /@untheme/nuxt@0.0.31(rollup@3.29.4):
+    resolution: {integrity: sha512-ksAXGP96GXGOoRJdXh2hKN5qr2YmBJlzOoI3x5D5ba4v8V/4YLxRsqqbCX7SCyd2NcshtbdRImFT8bmJolmGLw==}
     requiresBuild: true
     dependencies:
       '@nuxt/kit': 3.11.2(rollup@3.29.4)
-      '@untheme/kit': 0.0.30
-      untheme: 0.0.30
+      '@nuxtjs/color-mode': 3.4.1(rollup@3.29.4)
+      '@untheme/kit': 0.0.31
+      untheme: 0.0.31
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -7936,11 +7937,11 @@ packages:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
     engines: {node: '>= 10.0.0'}
 
-  /unocss-preset-untheme@0.0.30:
-    resolution: {integrity: sha512-EdYrbOAOUM/KK12KF35+s91LyX3XkOGdcioiAsEhjoaoc365hFOEVX+5GsIebLcFPu2NYUzq376YbBwACj8zsQ==}
+  /unocss-preset-untheme@0.0.31:
+    resolution: {integrity: sha512-NLvSIL4oB7iHdfWh+VIEoKtAHZza2anzVcqJPZwqIbKCVIY88tNtkX9TwxoznJLPgwAonUfMUJW619QpSFLXYA==}
     dependencies:
-      '@untheme/kit': 0.0.30
-      untheme: 0.0.30
+      '@untheme/kit': 0.0.31
+      untheme: 0.0.31
     dev: false
 
   /unocss@0.60.0(@unocss/webpack@0.60.0)(postcss@8.4.38)(rollup@3.29.4)(vite@5.2.11):
@@ -8079,8 +8080,8 @@ packages:
       - uWebSockets.js
     dev: false
 
-  /untheme@0.0.30:
-    resolution: {integrity: sha512-9i2vpPE2KmCJnhu+1deoSDtDNRWWFeGrfrkRPL4et6h9EeRemYswJjTYyN/6jnU1Yf+pt5/Hei8coDuo8kpOjA==}
+  /untheme@0.0.31:
+    resolution: {integrity: sha512-fo+F7kNDYiaitWFCrmgnANXC8R4qCUZkFBaYn0t11USWqBU4h13g4ePZcb5ZSTMTzdPzNoxwJUyTjkD8SUf6Qw==}
     dev: false
 
   /untun@0.1.3:

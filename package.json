@@ -40,14 +40,14 @@
     "@nuxt/kit": "^3.11.2",
     "@nuxtjs/color-mode": "^3.4.1",
     "@unocss/nuxt": "^0.60.0",
-    "@untheme/colors": "^0.0.30",
-    "@untheme/nuxt": "^0.0.30",
+    "@untheme/colors": "^0.0.31",
+    "@untheme/nuxt": "^0.0.31",
     "defu": "^6.1.4",
     "nuxt": "^3.11.2",
     "radix-vue": "^1.7.4",
     "tailwind-variants": "^0.2.1",
     "unocss": "^0.60.0",
-    "unocss-preset-untheme": "^0.0.30",
-    "untheme": "^0.0.30"
+    "unocss-preset-untheme": "^0.0.31",
+    "untheme": "^0.0.31"
   }
 }
