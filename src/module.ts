@@ -5,12 +5,19 @@ import {
   addComponentsDir,
   addImportsDir,
   addTypeTemplate,
+  installModule,
 } from "@nuxt/kit";
+import { defu } from "defu";
+import type { UserConfig } from "unocss";
+import unoTemplate from "./uno.template";
+import unthemeTemplate from "./untheme.template";
 
 export * from "./config";
 
 export interface BricksNuxtOptions {
   prefix?: string;
+  uno?: UserConfig;
+  untheme?: Partial<typeof unthemeTemplate>;
 }
 
 export default defineNuxtModule<BricksNuxtOptions>({
@@ -21,8 +28,17 @@ export default defineNuxtModule<BricksNuxtOptions>({
   defaults: {
     prefix: "z",
   },
-  setup({ prefix }, nuxt) {
+  setup({ prefix, uno, untheme }, nuxt) {
     const { resolve } = createResolver(import.meta.url);
+
+    // color mode
+    installModule("@nuxtjs/color-mode");
+
+    // unocss
+    installModule("@unocss/nuxt", defu(uno, unoTemplate));
+
+    // untheme
+    installModule("@untheme/nuxt", defu(untheme, unthemeTemplate));
 
     // common configurations
     const common = ["constants", "enums", "icons", "options"];
@@ -53,6 +69,7 @@ export default defineNuxtModule<BricksNuxtOptions>({
     addImportsDir(resolve("./runtime/utils"));
 
     // themes
+    addImportsDir(resolve("./runtime/themes"));
     addImportsDir(`${nuxt.options.srcDir}/themes`);
   },
 });

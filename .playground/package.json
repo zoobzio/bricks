@@ -5,7 +5,10 @@
     "postinstall": "nuxi prepare"
   },
   "dependencies": {
-    "nuxt": "^3.11.2",
-    "@zoobzio/bricks": "link:../"
+    "@zoobzio/bricks": "link:../",
+    "nuxt": "^3.11.2"
+  },
+  "devDependencies": {
+    "vue": "^3.4.27"
   }
 }
