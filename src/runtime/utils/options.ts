@@ -1,7 +1,7 @@
 // @ts-expect-error
 import options from "#build/options.config.mjs";
 import type { Options } from "#build/types/options.d.ts";
-import { applyOptions } from "../../src/config";
+import { applyOptions } from "../../config";
 
 type Option = keyof Options;
 

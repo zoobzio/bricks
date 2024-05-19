@@ -67,9 +67,5 @@ export default defineNuxtModule<BricksNuxtOptions>({
 
     // utils
     addImportsDir(resolve("./runtime/utils"));
-
-    // themes
-    addImportsDir(resolve("./runtime/themes"));
-    addImportsDir(`${nuxt.options.srcDir}/themes`);
   },
 });

@@ -48,6 +48,7 @@
     "tailwind-variants": "^0.2.1",
     "unocss": "^0.60.0",
     "unocss-preset-untheme": "^0.0.31",
-    "untheme": "^0.0.31"
+    "untheme": "^0.0.31",
+    "vue": "^3.4.27"
   }
 }
