@@ -1,5 +1,5 @@
 {
-  "name": "@zoobzio/bricks",
+  "name": "bricks",
   "type": "module",
   "license": "MIT",
   "author": {
@@ -20,14 +20,14 @@
   "types": "dist/module.d.ts",
   "files": [
     "dist",
-    "src/runtime"
+    "runtime"
   ],
   "scripts": {
     "build": "unbuild .",
-    "dev": "nuxi dev .playground",
+    "dev": "nuxi dev example",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "postinstall": "nuxi prepare"
+    "prepare": "nuxi prepare example"
   },
   "devDependencies": {
     "eslint": "^9.2.0",
