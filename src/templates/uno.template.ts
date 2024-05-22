@@ -4,18 +4,16 @@ import {
   presetIcons,
   presetTypography,
   presetWebFonts,
+  transformerDirectives,
+  transformerVariantGroup,
 } from "unocss";
 import { presetUntheme } from "unocss-preset-untheme";
-/**
- * unocss only cares about the token names and not the values
- * using the template here instead of the overwritten user config should be fine
- */
 import config from "./untheme.template";
 
 export default defineConfig({
   content: {
     pipeline: {
-      include: [/\.(vue|ts)($|\?)/],
+      include: [/\.(vue|ui.ts|config.ts|template.ts)($|\?)/],
     },
   },
   presets: [
@@ -23,30 +21,55 @@ export default defineConfig({
     presetIcons(),
     presetTypography({
       cssExtend: {
-        h1: { "--apply": "" },
-        h2: { "--apply": "" },
-        h3: { "--apply": "" },
-        h4: { "--apply": "" },
-        h5: { "--apply": "" },
-        h6: { "--apply": "" },
-        p: { "--apply": "" },
-        a: { "--apply": "" },
-        // add more as needed
+        h1: {
+          "--apply": "text-neutral-fg-xh font-typesize-heading-1",
+        },
+        h2: {
+          "--apply": "text-neutral-fg-xh font-typesize-heading-2",
+        },
+        h3: {
+          "--apply": "text-neutral-fg-xh font-typesize-heading-3",
+        },
+        h4: {
+          "--apply": "text-neutral-fg-xh font-typesize-heading-4",
+        },
+        h5: {
+          "--apply": "text-neutral-fg-xh font-typesize-heading-5",
+        },
+        h6: {
+          "--apply": "text-neutral-fg-xh font-typesize-heading-6",
+        },
+        p: {
+          "--apply": "text-neutral-fg-h font-typesize-body-m",
+        },
+        a: {
+          "--apply":
+            "text-neutral-fg-h font-typesize-body-m hover:(text-primary-bg-m)",
+        },
       },
     }),
     presetWebFonts({
       provider: "google",
-      // turn this into a configuration
       fonts: {
-        archivo: "Archivo",
         inter: "Inter",
+        archivo: "Archivo",
       },
     }),
     presetUntheme({
       config,
       templates: {
-        // add these
+        colors: /tw|primary|tonal|neutral|error(-(.*))/,
+        spacing: /spacing-(.*)/,
+        fontSize: /typesize-(.*)/,
+        borderRadius: /shape-(.*)/,
+        lineHeight: /line-(.*)/,
       },
     }),
+  ],
+  transformers: [
+    transformerDirectives({
+      applyVariable: ["--apply"],
+    }),
+    transformerVariantGroup(),
   ],
 });

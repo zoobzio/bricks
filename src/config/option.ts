@@ -4,7 +4,7 @@ export type OptionTemplate = {
 };
 
 export type OptionConfig = {
-  [key: string]: Readonly<OptionTemplate[]>;
+  [key: string]: OptionTemplate[];
 };
 
 export function defineOptions<Options extends OptionConfig>(options: Options) {

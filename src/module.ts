@@ -13,7 +13,6 @@ import type { UserConfig } from "unocss";
 import type {
   ConstantConfig,
   EnumConfig,
-  IconConfig,
   OptionConfig,
 } from "./config";
 
@@ -25,7 +24,6 @@ export interface BricksNuxtOptions {
   untheme?: Partial<typeof templates.untheme>;
   constants?: Partial<typeof templates.constants> & ConstantConfig;
   enums?: Partial<typeof templates.enums> & EnumConfig;
-  icons?: Partial<typeof templates.icons> & IconConfig;
   options?: Partial<typeof templates.options> & OptionConfig;
 }
 
@@ -37,14 +35,13 @@ export default defineNuxtModule<BricksNuxtOptions>({
   defaults: {
     prefix: "z",
   },
-  setup({ prefix, uno, untheme, constants, enums, icons, options }) {
+  setup({ prefix, uno, untheme, constants, enums, options }) {
     // configurations
     const config = {
       uno: defu(uno ?? {}, templates.uno),
       untheme: defu(untheme ?? {}, templates.untheme),
       constants: defu(constants ?? {}, templates.constants),
       enums: defu(enums ?? {}, templates.enums),
-      icons: defu(icons ?? {}, templates.icons),
       options: defu(options ?? {}, templates.options),
     };
 
@@ -58,25 +55,24 @@ export default defineNuxtModule<BricksNuxtOptions>({
     installModule("@unocss/nuxt", config.uno);
 
     // untheme
-    installModule("@untheme/nuxt", config.untheme);
+    installModule("@untheme/nuxt", {
+      config: config.untheme
+    });
 
-    // features
-    const common = ["constants", "enums", "icons", "options"] as const;
+    // data features
+    const common = ["constants", "enums", "options"] as const;
     common.forEach((key) => {
       addTemplate({
         filename: `${key}.config.mjs`,
-        getContents: () =>
-          [
-            // `import ${key} from "${nuxt.options.srcDir}/${configSrc}/${key}.config";`,
-            `const ${key} = ${JSON.stringify(config[key], null, 2)} as const;`,
-            `export default ${key};`,
-          ].join("\n"),
+        getContents: () => [
+          `const ${key} = ${JSON.stringify(config[key], null, 2)};`,
+          `export default ${key};`,
+        ].join("\n"),
       });
       addTypeTemplate({
         filename: `types/${key}.d.ts`,
         getContents: () =>
           [
-            // `import ${key} from "${nuxt.options.srcDir}/${configSrc}/${key}.config";`,
             `const ${key} = ${JSON.stringify(config[key], null, 2)} as const;`,
             `export type ${
               key.charAt(0).toUpperCase() + key.slice(1)
@@ -93,5 +89,8 @@ export default defineNuxtModule<BricksNuxtOptions>({
 
     // utils
     addImportsDir(resolve("../runtime/utils"));
+
+    // ui 
+    addImportsDir(resolve("../runtime/ui"));
   },
 });

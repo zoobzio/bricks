@@ -1,5 +1,5 @@
 export type EnumConfig = {
-  [key: string]: Readonly<string[] | number[]>;
+  [key: string]: string[] | number[];
 };
 
 export function defineEnums<Enums extends EnumConfig>(enums: Enums) {

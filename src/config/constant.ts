@@ -1,5 +1,5 @@
 export type ConstantConfig = {
-  [key: string]: Readonly<string | number>;
+  [key: string]: string | number;
 };
 
 export function defineConstants<Constants extends ConstantConfig>(

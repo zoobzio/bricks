@@ -33,22 +33,24 @@
     "eslint": "^9.2.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
+    "nuxt": "^3.11.2",
     "prettier": "^3.2.5",
     "unbuild": "^2.0.0"
   },
   "dependencies": {
+    "@iconify-json/fa6-solid": "^1.1.21",
     "@nuxt/kit": "^3.11.2",
     "@nuxtjs/color-mode": "^3.4.1",
     "@unocss/nuxt": "^0.60.0",
-    "@untheme/colors": "^0.0.31",
-    "@untheme/nuxt": "^0.0.31",
+    "@untheme/colors": "^0.0.37",
+    "@untheme/nuxt": "^0.0.37",
     "defu": "^6.1.4",
-    "nuxt": "^3.11.2",
     "radix-vue": "^1.7.4",
+    "tailwind-merge": "^2.3.0",
     "tailwind-variants": "^0.2.1",
     "unocss": "^0.60.0",
-    "unocss-preset-untheme": "^0.0.31",
-    "untheme": "^0.0.31",
+    "unocss-preset-untheme": "^0.0.37",
+    "untheme": "^0.0.37",
     "vue": "^3.4.27"
   }
 }

@@ -15,4 +15,4 @@ export default defineOptions({
       label: "Three",
     },
   ],
-} as const);
+});
