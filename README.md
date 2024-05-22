@@ -2,10 +2,10 @@
 
 🧰 A minimalist &amp; generic component library for Nuxt applications
 
-## Develop 
+## Develop
 
 ```sh
-# deps 
+# deps
 pnpm i
 # generate types
 pnpm build

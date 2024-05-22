@@ -15,6 +15,6 @@ const ui = {
 export type IconUI = typeof ui;
 
 export function useIconUI(override: Partial<IconUI> = {}) {
-    const merged = mergeComponentUI(override, ui);
-    return tv(merged);
+  const merged = mergeComponentUI(override, ui);
+  return tv(merged);
 }

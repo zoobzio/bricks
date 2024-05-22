@@ -4,7 +4,7 @@ import { Primitive, type PrimitiveProps } from "radix-vue";
 // this will need to become a module, temporary placement here
 const aliases = {
   example: "i-fa6-solid-rocket",
-}
+};
 
 export type IconAlias = keyof typeof aliases;
 export type IconSize = EnumData<"commonSize">;

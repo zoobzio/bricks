@@ -10,11 +10,7 @@ import {
 import { defu } from "defu";
 import templates from "./templates";
 import type { UserConfig } from "unocss";
-import type {
-  ConstantConfig,
-  EnumConfig,
-  OptionConfig,
-} from "./config";
+import type { ConstantConfig, EnumConfig, OptionConfig } from "./config";
 
 export * from "./config";
 
@@ -56,7 +52,7 @@ export default defineNuxtModule<BricksNuxtOptions>({
 
     // untheme
     installModule("@untheme/nuxt", {
-      config: config.untheme
+      config: config.untheme,
     });
 
     // data features
@@ -64,10 +60,11 @@ export default defineNuxtModule<BricksNuxtOptions>({
     common.forEach((key) => {
       addTemplate({
         filename: `${key}.config.mjs`,
-        getContents: () => [
-          `const ${key} = ${JSON.stringify(config[key], null, 2)};`,
-          `export default ${key};`,
-        ].join("\n"),
+        getContents: () =>
+          [
+            `const ${key} = ${JSON.stringify(config[key], null, 2)};`,
+            `export default ${key};`,
+          ].join("\n"),
       });
       addTypeTemplate({
         filename: `types/${key}.d.ts`,
@@ -90,7 +87,7 @@ export default defineNuxtModule<BricksNuxtOptions>({
     // utils
     addImportsDir(resolve("../runtime/utils"));
 
-    // ui 
+    // ui
     addImportsDir(resolve("../runtime/ui"));
   },
 });
