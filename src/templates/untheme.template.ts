@@ -68,7 +68,7 @@ export default defineUnthemeConfig({
     "typesize-body-l": "1em",
   },
   themes: {
-    seerist: {
+    company: {
       ...referenceColorTokens("tw", "emerald", "primary", "-"),
       ...referenceColorTokens("tw", "stone", "surface", "-"),
       ...referenceColorTokens("tw", "rose", "error", "-"),

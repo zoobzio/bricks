@@ -13,7 +13,7 @@ import config from "./untheme.template";
 export default defineConfig({
   content: {
     pipeline: {
-      include: [/\.(vue|ui.ts|config.ts|template.ts)($|\?)/],
+      include: [/\.(vue|ts)($|\?)/],
     },
   },
   presets: [

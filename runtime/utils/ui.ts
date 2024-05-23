@@ -25,9 +25,13 @@ export type UITemplate = {
     [key: string]: Readonly<string> | boolean;
   })[];
   compoundVariants?: ({
-    class: ClassValue;
+    class:
+      | ClassValue
+      | {
+          [key: string]: ClassValue;
+        };
   } & {
-    [key: string]: Readonly<string> | boolean | undefined;
+    [key: string]: Readonly<string> | boolean | object | undefined;
   })[];
 };
 

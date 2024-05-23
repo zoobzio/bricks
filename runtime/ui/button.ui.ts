@@ -9,7 +9,7 @@ const ui = {
       tonal: "bg-tonal-bg-m text-tonal-fg-m",
       outlined: "text-neutral-fg-h border-neutral-fg-l",
       text: "text-neutral-fg-h",
-      destructive: "bg-error-bg-h text-error-fg-h",
+      destructive: "bg-error-bg-h text-error-fg-h ",
     },
     size: {
       small: "gap-spacing-xs",
@@ -44,7 +44,7 @@ const ui = {
   },
   compoundVariants: [
     {
-      size: "large" as const, // tv expects string literals for variant keys
+      size: "large" as const,
       icon: true,
       class: "pa-spacing-s",
     },
@@ -89,6 +89,6 @@ const ui = {
 export type ButtonUI = typeof ui;
 
 export function useButtonUI(override: Partial<ButtonUI> = {}) {
-  const merged = mergeComponentUI(ui, override);
+  const merged = mergeComponentUI(override, ui);
   return tv(merged);
 }

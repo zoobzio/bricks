@@ -1,13 +1,7 @@
 <script lang="ts">
 import { Primitive, type PrimitiveProps } from "radix-vue";
 
-// this will need to become a module, temporary placement here
-const aliases = {
-  example: "i-fa6-solid-rocket",
-};
-
-export type IconAlias = keyof typeof aliases;
-export type IconSize = EnumData<"commonSize">;
+export type IconSize = EnumData<"sizes">;
 
 export interface IconProps extends PrimitiveProps {
   icon: IconAlias;
@@ -21,17 +15,12 @@ const props = withDefaults(defineProps<IconProps>(), {
   as: "i",
   size: "medium",
 });
-const ui = useIconUI(props.ui);
+const ui = useIconUI(props.ui)({
+  size: props.size,
+  class: useIcon(props.icon),
+});
 </script>
 
 <template>
-  <Primitive
-    :as="as"
-    :class="
-      ui({
-        size: props.size,
-        class: aliases[props.icon],
-      })
-    "
-  />
+  <Primitive :as="as" :class="ui" />
 </template>

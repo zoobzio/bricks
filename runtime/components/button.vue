@@ -1,10 +1,10 @@
 <script lang="ts">
-import Icon, { type IconAlias } from "./icon.vue";
+import Icon from "./icon.vue";
 import { Primitive } from "radix-vue";
 
 export type ButtonType = EnumData<"buttonTypes">;
 export type ButtonVariant = EnumData<"buttonVariants">;
-export type ButtonSize = EnumData<"commonSize">;
+export type ButtonSize = EnumData<"sizes">;
 
 export interface ButtonProps {
   label?: string;
@@ -12,12 +12,11 @@ export interface ButtonProps {
   disabled?: boolean;
   variant?: ButtonVariant;
   size?: ButtonSize;
-  // extract this type & include strongly-typed urls for `to` field
   link?: {
     label: string;
     to: string;
+    target?: EnumData<"targets">;
     icon?: IconAlias;
-    target?: EnumData<"linkTargets">;
     external?: boolean;
   };
   icon?: IconAlias;
@@ -37,7 +36,14 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   size: "medium",
 });
 
-const ui = useButtonUI(props.ui);
+const ui = useButtonUI(props.ui)({
+  variant: props.variant,
+  size: props.size,
+  icon: !!props.icon || props.asIcon,
+  active: !props.disabled ? props.variant : undefined,
+  hover: !props.disabled ? props.variant : undefined,
+  disabled: props.disabled ? props.variant : undefined,
+});
 
 const buttonProps = {
   as: "button",
@@ -58,16 +64,7 @@ const NuxtLink = defineNuxtLink({});
     :as="!link ? 'button' : NuxtLink"
     v-bind="!link ? buttonProps : linkProps"
     :disabled="disabled"
-    :class="
-      ui({
-        variant: props.variant,
-        size: props.size,
-        icon: !!props.icon || props.asIcon,
-        active: !props.disabled ? props.variant : undefined,
-        hover: !props.disabled ? props.variant : undefined,
-        disabled: props.disabled ? props.variant : undefined,
-      })
-    "
+    :class="ui"
   >
     <slot v-if="!icon" name="prepend">
       <Icon v-if="prependIcon" :icon="prependIcon" :size="size" />

@@ -2,6 +2,10 @@
 
 🧰 A minimalist &amp; generic component library for Nuxt applications
 
+## Documentation
+
+🚧 This project is under construction!
+
 ## Develop
 
 ```sh

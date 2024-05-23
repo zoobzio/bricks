@@ -44,8 +44,8 @@ export default defineNuxtModule<BricksNuxtOptions>({
     // paths
     const { resolve } = createResolver(import.meta.url);
 
-    // color mode
-    installModule("@nuxtjs/color-mode");
+    // vue use
+    installModule("@vueuse/nuxt");
 
     // unocss
     installModule("@unocss/nuxt", config.uno);

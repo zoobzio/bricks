@@ -1,4 +1,4 @@
-// @ts-expect-error
+// @ts-expect-error not available until runtime
 import config from "#build/options.config.mjs";
 import type { Options } from "#build/types/options.d.ts";
 

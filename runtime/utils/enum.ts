@@ -1,4 +1,4 @@
-// @ts-expect-error
+// @ts-expect-error not available until runtime
 import config from "#build/enums.config.mjs";
 import type { Enums } from "#build/types/enums.d.ts";
 
