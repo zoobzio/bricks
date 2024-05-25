@@ -1,5 +1,5 @@
 {
-  "name": "bricks",
+  "name": "zui",
   "type": "module",
   "license": "MIT",
   "author": {
@@ -23,10 +23,10 @@
     "runtime"
   ],
   "scripts": {
-    "build": "unbuild .",
     "dev": "nuxi dev example",
+    "build": "unbuild .",
     "lint": "eslint .",
-    "format": "prettier --write .",
+    "typecheck": "nuxi typecheck",
     "prepare": "nuxi prepare example"
   },
   "devDependencies": {
@@ -35,18 +35,21 @@
     "eslint-plugin-prettier": "^5.1.3",
     "nuxt": "^3.11.2",
     "prettier": "^3.2.5",
+    "typescript": "^5.4.5",
     "unbuild": "^2.0.0"
   },
   "dependencies": {
     "@iconify-json/fa6-solid": "^1.1.21",
     "@nuxt/kit": "^3.11.2",
     "@nuxtjs/color-mode": "^3.4.1",
+    "@pinia/nuxt": "^0.5.1",
     "@unocss/nuxt": "^0.60.0",
     "@untheme/colors": "^0.0.37",
     "@untheme/nuxt": "^0.0.37",
     "@vueuse/core": "^10.9.0",
     "@vueuse/nuxt": "^10.9.0",
     "defu": "^6.1.4",
+    "pinia": "^2.1.7",
     "radix-vue": "^1.7.4",
     "tailwind-merge": "^2.3.0",
     "tailwind-variants": "^0.2.1",

@@ -1,4 +1,4 @@
-import { defineOptions } from "bricks";
+import { defineOptions } from "zui";
 
 export default defineOptions({
   example: [

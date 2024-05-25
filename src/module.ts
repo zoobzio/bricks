@@ -14,19 +14,19 @@ import type { ConstantConfig, EnumConfig, OptionConfig } from "./config";
 
 export * from "./config";
 
-export interface BricksNuxtOptions {
+export interface ZuiNuxtOptions {
   prefix?: string;
   uno?: UserConfig;
-  untheme?: Partial<typeof templates.untheme>;
+  untheme?: Partial<typeof templates.untheme>; // TODO - users should also be able to define new themes/modes/etc
   constants?: Partial<typeof templates.constants> & ConstantConfig;
   enums?: Partial<typeof templates.enums> & EnumConfig;
   options?: Partial<typeof templates.options> & OptionConfig;
 }
 
-export default defineNuxtModule<BricksNuxtOptions>({
+export default defineNuxtModule<ZuiNuxtOptions>({
   meta: {
-    name: "bricks",
-    configKey: "bricks",
+    name: "zui",
+    configKey: "zui",
   },
   defaults: {
     prefix: "z",
@@ -44,18 +44,15 @@ export default defineNuxtModule<BricksNuxtOptions>({
     // paths
     const { resolve } = createResolver(import.meta.url);
 
-    // vue use
+    // modules
+    installModule("@pinia/nuxt");
     installModule("@vueuse/nuxt");
-
-    // unocss
     installModule("@unocss/nuxt", config.uno);
-
-    // untheme
     installModule("@untheme/nuxt", {
       config: config.untheme,
     });
 
-    // data features
+    // features
     const common = ["constants", "enums", "options"] as const;
     common.forEach((key) => {
       addTemplate({
@@ -78,16 +75,12 @@ export default defineNuxtModule<BricksNuxtOptions>({
       });
     });
 
-    // components
+    // runtime
     addComponentsDir({
       path: resolve("../runtime/components"),
       prefix,
     });
-
-    // utils
     addImportsDir(resolve("../runtime/utils"));
-
-    // ui
     addImportsDir(resolve("../runtime/ui"));
   },
 });
