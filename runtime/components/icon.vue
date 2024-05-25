@@ -19,10 +19,12 @@ const props = withDefaults(defineProps<IconProps>(), {
   as: "i",
   size: "medium",
 });
-const ui = useIconUI(props.ui)({
-  size: props.size,
-  class: useIcon(props.icon),
-});
+const ui = computed(() =>
+  useIconUI(props.ui)({
+    size: props.size,
+    class: useIcon(props.icon),
+  })
+);
 </script>
 
 <template>
