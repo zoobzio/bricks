@@ -4,6 +4,7 @@ import type { EnumData } from "../utils/enum";
 import type { IconAlias } from "../utils/icon";
 import { useIconUI, type IconUI } from "../ui/icon.ui";
 import { useIcon } from "../utils/icon";
+import { computed } from "vue";
 
 export type IconSize = EnumData<"sizes">;
 
