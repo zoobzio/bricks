@@ -3,6 +3,7 @@ import type { FormField } from "../utils/form";
 import type { CompositeValue } from "../utils/record";
 import { useCompositeUI, type CompositeUI } from "../ui/composite.ui";
 import Field from "./field.vue";
+import { useVModel } from "@vueuse/core";
 
 export interface CompositeProps {
   modelValue: CompositeValue;
