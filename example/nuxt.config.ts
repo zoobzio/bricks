@@ -4,9 +4,9 @@ import enums from "./config/enums.config";
 import options from "./config/options.config";
 
 export default defineNuxtConfig({
-  modules: ["zui"],
+  modules: ["@zoobzio/ui"],
   css: ["@unocss/reset/tailwind.css"],
-  zui: {
+  ui: {
     constants,
     enums,
     options,

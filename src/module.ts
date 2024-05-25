@@ -14,7 +14,7 @@ import type { ConstantConfig, EnumConfig, OptionConfig } from "./config";
 
 export * from "./config";
 
-export interface ZuiNuxtOptions {
+export interface UINuxtOptions {
   prefix?: string;
   uno?: UserConfig;
   untheme?: Partial<typeof templates.untheme>; // TODO - users should also be able to define new themes/modes/etc
@@ -23,10 +23,10 @@ export interface ZuiNuxtOptions {
   options?: Partial<typeof templates.options> & OptionConfig;
 }
 
-export default defineNuxtModule<ZuiNuxtOptions>({
+export default defineNuxtModule<UINuxtOptions>({
   meta: {
-    name: "zui",
-    configKey: "zui",
+    name: "@zoobzio/ui",
+    configKey: "ui",
   },
   defaults: {
     prefix: "z",

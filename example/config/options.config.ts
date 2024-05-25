@@ -1,4 +1,4 @@
-import { defineOptions } from "zui";
+import { defineOptions } from "@zoobzio/ui";
 
 export default defineOptions({
   example: [

@@ -1,4 +1,4 @@
-import { defineConstants } from "zui";
+import { defineConstants } from "@zoobzio/ui";
 
 export default defineConstants({
   example: "Example",

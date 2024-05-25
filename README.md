@@ -1,4 +1,4 @@
-# zui
+# @zoobzio/ui
 
 🧰 A minimalist &amp; generic component library for Nuxt applications
 
