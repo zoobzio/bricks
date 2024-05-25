@@ -1,4 +1,8 @@
 <script lang="ts">
+import type { FormField } from "../utils/form";
+import type { CompositeValue } from "../utils/record";
+import { useCompositeUI, type CompositeUI } from "../ui/composite.ui";
+
 export interface CompositeProps {
   modelValue: CompositeValue;
   error?: string;

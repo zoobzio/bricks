@@ -13,6 +13,8 @@ import {
   ComboboxItem,
   ComboboxSeparator,
 } from "radix-vue";
+import { useCommandUI, type CommandUI } from "../ui/command.ui";
+import type { OptionData, Option } from "../utils/options";
 
 export interface CommandProps<O extends Option> {
   placeholder?: string;

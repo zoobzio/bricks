@@ -1,6 +1,9 @@
 <script lang="ts">
 import Icon from "./icon.vue";
 import { Primitive } from "radix-vue";
+import { useButtonUI, type ButtonUI } from "../ui/button.ui";
+import type { EnumData } from "../utils/enum";
+import type { IconAlias } from "../utils/icon";
 
 export type ButtonType = EnumData<"buttonTypes">;
 export type ButtonVariant = EnumData<"buttonVariants">;

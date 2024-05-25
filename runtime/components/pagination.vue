@@ -9,6 +9,9 @@ import {
   PaginationPrev,
   PaginationEllipsis,
 } from "radix-vue";
+import { useVModel } from "@vueuse/core";
+import { usePaginationUI } from "../ui/pagination.ui";
+import Button from "./button.vue";
 
 export interface PaginationProps {
   modelValue: number;
@@ -47,12 +50,12 @@ const ui = usePaginationUI(props.ui)();
     <PaginationList v-slot="{ items }" :class="ui.list()">
       <PaginationFirst as-child>
         <slot name="first">
-          <ZButton icon="first" variant="outlined" />
+          <Button icon="first" variant="outlined" />
         </slot>
       </PaginationFirst>
       <PaginationPrev as-child>
         <slot name="prev">
-          <ZButton icon="previous" variant="outlined" />
+          <Button icon="previous" variant="outlined" />
         </slot>
       </PaginationPrev>
       <template
@@ -61,28 +64,28 @@ const ui = usePaginationUI(props.ui)();
       >
         <slot v-if="item.type === 'page'" :name="String(item.value)">
           <PaginationListItem as-child :value="item.value">
-            <ZButton
+            <Button
               :variant="item.value === modelValue ? 'tonal' : 'outlined'"
               as-icon
             >
               {{ item.value }}
-            </ZButton>
+            </Button>
           </PaginationListItem>
         </slot>
         <slot v-else name="more">
           <PaginationEllipsis as-child>
-            <ZButton icon="more" variant="text" disabled />
+            <Button icon="more" variant="text" disabled />
           </PaginationEllipsis>
         </slot>
       </template>
       <PaginationNext as-child>
         <slot name="next">
-          <ZButton icon="next" variant="outlined" />
+          <Button icon="next" variant="outlined" />
         </slot>
       </PaginationNext>
       <PaginationLast as-child>
         <slot name="last">
-          <ZButton icon="last" variant="outlined" />
+          <Button icon="last" variant="outlined" />
         </slot>
       </PaginationLast>
     </PaginationList>

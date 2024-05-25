@@ -1,4 +1,7 @@
 <script lang="ts">
+import { useRecordValue } from "../utils/record";
+import type { RecordTemplate } from "../utils/record";
+
 export interface RecordProps<R extends RecordTemplate> {
   header: RecordHeader<R>;
   item: R;
@@ -10,7 +13,7 @@ const props = defineProps<RecordProps<R>>();
 
 const display = computed(() => {
   const value = props.item[props.header.key];
-  let option, options;
+  let option;
   switch (props.header.variant) {
     case "option":
       option = props.header.options?.find((o) => o.key === value);

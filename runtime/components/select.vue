@@ -21,17 +21,17 @@ import {
   SelectItemIndicator,
   SelectLabel,
 } from "radix-vue";
+import type { IconAlias } from "../utils/icon";
+import type { OptionData } from "../utils/options";
+import { useSelectUI } from "../ui/select.ui";
+import Icon from "./icon.vue";
+import { useVModel } from "@vueuse/core";
 
-export interface SelectOption {
-  key: string;
-  label: string;
-}
-
-export interface SelectProps {
+export interface SelectProps<O extends Option> {
   modelValue?: string;
   label?: string;
   placeholder?: string;
-  items?: SelectOption[];
+  items?: OptionData<O>[number][];
   error?: boolean;
   prependIcon?: IconAlias;
   appendIcon?: IconAlias;
@@ -39,8 +39,8 @@ export interface SelectProps {
 }
 </script>
 
-<script setup lang="ts">
-const props = withDefaults(defineProps<SelectProps>(), {
+<script setup lang="ts" generic="O extends Option">
+const props = withDefaults(defineProps<SelectProps<O>>(), {
   placeholder: "Select an option",
   items: () => [],
 });
@@ -69,13 +69,13 @@ const groups = computed(() => {
   };
 });
 const groupKeys = computed(
-  () => Object.keys(groups.value) as (keyof typeof groups.value)[],
+  () => Object.keys(groups.value) as (keyof typeof groups.value)[]
 );
 
 const active = computed(() =>
   props.modelValue
     ? props.items.find((i) => i.key === props.modelValue)?.label
-    : props.placeholder,
+    : props.placeholder
 );
 
 function handleFocus() {
@@ -102,13 +102,13 @@ function handleBlur() {
         {{ active }}
       </span>
       <SelectIcon as-child>
-        <ZIcon :icon="open ? 'up' : 'down'" :class="ui.icon()" />
+        <Icon :icon="open ? 'up' : 'down'" :class="ui.icon()" />
       </SelectIcon>
     </SelectTrigger>
     <SelectPortal>
       <SelectContent :class="ui.content({ position: 'popper' })">
         <SelectScrollUpButton :class="ui.button()">
-          <ZIcon icon="up" />
+          <Icon icon="up" />
         </SelectScrollUpButton>
         <SelectViewport :class="ui.viewport({ position: 'popper' })">
           <SelectGroup v-for="key in groupKeys" :key="key" :class="ui.group()">
@@ -118,12 +118,12 @@ function handleBlur() {
             <SelectItem
               v-for="item in groups[key]"
               :key="item.key"
-              :value="item.key"
+              :value="String(item.key)"
               :class="ui.item()"
             >
               <span :class="ui.indicator()">
                 <SelectItemIndicator>
-                  <ZIcon icon="check" :class="ui.check()" />
+                  <Icon icon="check" :class="ui.check()" />
                 </SelectItemIndicator>
               </span>
 
@@ -134,7 +134,7 @@ function handleBlur() {
           </SelectGroup>
         </SelectViewport>
         <SelectScrollDownButton :class="ui.button">
-          <ZIcon icon="down" />
+          <Icon icon="down" />
         </SelectScrollDownButton>
       </SelectContent>
     </SelectPortal>

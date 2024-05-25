@@ -1,5 +1,7 @@
 <script lang="ts">
 import { PopoverRoot, PopoverTrigger, PopoverContent } from "radix-vue";
+import { useVModel } from "@vueuse/core";
+import { usePopoverUI, type PopoverUI } from "../ui/popover.ui";
 
 export interface PopoverProps {
   modelValue?: boolean;

@@ -6,6 +6,7 @@ import {
   ScrollAreaScrollbar,
   ScrollAreaThumb,
 } from "radix-vue";
+import { useScrollerUI, type ScrollerUI } from "../ui/scroller.ui";
 
 export interface ScrollerProps {
   orientation?: "vertical" | "horizontal";

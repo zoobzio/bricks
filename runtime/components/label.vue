@@ -1,5 +1,8 @@
 <script lang="ts">
 import { Label, type LabelProps as RadixLabelProps } from "radix-vue";
+import { useLabelUI, type LabelUI } from "../ui/label.ui";
+import Icon from "./icon.vue";
+import type { IconAlias } from "../utils/icon";
 
 export interface LabelProps extends RadixLabelProps {
   text?: string;
@@ -18,7 +21,7 @@ const ui = useLabelUI(props.ui)({ error: props.error });
   <Label v-bind="props" :class="ui.label()">
     <slot>
       <span :class="ui.wrapper()">
-        <ZIcon v-if="icon" :icon="icon" size="small" />
+        <Icon v-if="icon" :icon="icon" size="small" />
         {{ text }}
       </span>
     </slot>

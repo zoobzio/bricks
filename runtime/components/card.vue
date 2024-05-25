@@ -1,4 +1,6 @@
 <script lang="ts">
+import { useCardUI, type CardUI } from "../ui/card.ui";
+
 export interface CardProps {
   title?: string;
   description?: string;

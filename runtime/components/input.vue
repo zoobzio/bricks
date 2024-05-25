@@ -1,4 +1,10 @@
 <script lang="ts">
+import type { EnumData } from "../utils/enum";
+import type { IconAlias } from "../utils/icon";
+import Icon from "./icon.vue";
+import { useVModel } from "@vueuse/core";
+import { useInputUI, type InputUI } from "../ui/input.ui";
+
 export interface InputProps {
   modelValue?: string | number;
   name?: string;
@@ -52,7 +58,7 @@ function handleClear() {
 <template>
   <div :class="ui.wrapper()">
     <slot name="prepend" :icon="prependIcon" :size="size">
-      <ZIcon v-if="prependIcon" :icon="prependIcon" :size="size" />
+      <Icon v-if="prependIcon" :icon="prependIcon" :size="size" />
     </slot>
     <input
       v-model="modelValue"
@@ -65,7 +71,7 @@ function handleClear() {
       @focus="handleFocus"
       @blur="handleBlur"
     />
-    <ZIcon
+    <Icon
       v-if="clearable && modelValue"
       icon="clear"
       :size="size"
@@ -73,7 +79,7 @@ function handleClear() {
       @click="handleClear"
     />
     <slot name="append" :icon="appendIcon" :size="size">
-      <ZIcon v-if="appendIcon" :icon="appendIcon" :size="size" />
+      <Icon v-if="appendIcon" :icon="appendIcon" :size="size" />
     </slot>
   </div>
 </template>

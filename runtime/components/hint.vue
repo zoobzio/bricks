@@ -1,4 +1,6 @@
 <script lang="ts">
+import { useHintUI, type HintUI } from "../ui/hint.ui";
+
 export interface HintProps {
   text?: string;
   error?: string;

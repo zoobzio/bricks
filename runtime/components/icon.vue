@@ -1,5 +1,9 @@
 <script lang="ts">
 import { Primitive, type PrimitiveProps } from "radix-vue";
+import type { EnumData } from "../utils/enum";
+import type { IconAlias } from "../utils/icon";
+import { useIconUI, type IconUI } from "../ui/icon.ui";
+import { useIcon } from "../utils/icon";
 
 export type IconSize = EnumData<"sizes">;
 

@@ -1,6 +1,16 @@
 <script lang="ts">
+import type { IconAlias } from "../utils/icon";
+import { useBreadcrumbUI, type BreadcrumbUI } from "../ui/breadcrumb.ui";
+import type { EnumData } from "../utils/enum";
+
 export interface BreadcrumbProps {
-  links: Link[];
+  links: {
+    to: string;
+    label: string;
+    icon?: IconAlias;
+    target?: EnumData<"targets">;
+    external?: boolean;
+  }[];
   ui?: Partial<BreadcrumbUI>;
 }
 </script>

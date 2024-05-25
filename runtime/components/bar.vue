@@ -1,4 +1,7 @@
 <script lang="ts">
+import { useBarUI, type BarUI } from "../ui/bar.ui";
+import type { EnumData } from "../utils/enum";
+
 export interface BarProps {
   position?: "top" | "bottom";
   size?: EnumData<"sizes">;

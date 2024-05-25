@@ -6,6 +6,7 @@ import {
   DialogOverlay,
   DialogContent,
 } from "radix-vue";
+import { useDialogUI, type DialogUI } from "../ui/dialog.ui";
 
 export interface DialogProps {
   title?: string;

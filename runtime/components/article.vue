@@ -1,4 +1,6 @@
 <script lang="ts">
+import { useArticleUI, type ArticleUI } from "../ui/article.ui";
+
 export interface ArticleProps {
   ui?: Partial<ArticleUI>;
 }

@@ -1,4 +1,9 @@
 <script lang="ts">
+import { useTableUI, type TableUI } from "../ui/table.ui";
+import Scroller from "./scroller.vue";
+import Icon from "./icon.vue";
+import type { RecordTemplate } from "../utils/record";
+
 export interface TableProps<R extends RecordTemplate> {
   headers: RecordHeader<R>[];
   items: R[];
@@ -12,7 +17,7 @@ const ui = useTableUI(props.ui)();
 </script>
 
 <template>
-  <ZScroller orientation="horizontal">
+  <Scroller orientation="horizontal">
     <table :class="ui.table()">
       <thead :class="ui.thead()">
         <tr :class="ui.tr()">
@@ -23,7 +28,7 @@ const ui = useTableUI(props.ui)();
           >
             <slot name="header" :column="column" :ui="ui">
               <span :class="ui.thWrapper()">
-                <ZIcon v-if="column.icon" :icon="column.icon" size="small" />
+                <Icon v-if="column.icon" :icon="column.icon" size="small" />
                 {{ column.label }}
               </span>
             </slot>
@@ -38,7 +43,7 @@ const ui = useTableUI(props.ui)();
             :class="ui.td()"
           >
             <slot :name="String(column.key)">
-              <ZRecord :item="record" :header="column" />
+              <Record :item="record" :header="column" />
             </slot>
           </td>
         </tr>
@@ -47,5 +52,5 @@ const ui = useTableUI(props.ui)();
         <slot name="footer" />
       </tfoot>
     </table>
-  </ZScroller>
+  </Scroller>
 </template>

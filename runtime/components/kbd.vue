@@ -1,4 +1,6 @@
 <script lang="ts">
+import { useKbdUI, type KbdUI } from "../ui/kbd.ui";
+
 export interface KbdProps {
   label?: string;
   ui?: Partial<KbdUI>;

@@ -1,4 +1,8 @@
 <script lang="ts">
+import { useVModel } from "@vueuse/core";
+import { useTextareaUI, type TextareaUI } from "../ui/textarea.ui";
+import type { IconAlias } from "../utils/icon";
+
 export interface TextareaProps {
   modelValue?: string;
   name?: string;

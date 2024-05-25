@@ -1,5 +1,9 @@
 <script lang="ts">
 import { ZodError } from "zod";
+import type { CompositeValue, RecordValue } from "../utils/record";
+import type { IconAlias } from "../utils/icon";
+import type { FormField } from "../utils/form";
+import { useFieldUI, type FieldUI } from "../ui/field.ui";
 
 export interface FieldProps {
   modelValue?: RecordValue;
@@ -59,7 +63,7 @@ function handleBlur() {
     <slot>
       <ZInput
         v-if="field.variant === 'text'"
-        :model-value="useRecordValue<string>(modelValue)"
+        :model-value="modelValue as string"
         :name="field.key"
         :placeholder="field.placeholder"
         :error="!!error"
@@ -69,7 +73,7 @@ function handleBlur() {
       />
       <ZTextarea
         v-else-if="field.variant === 'textarea'"
-        :model-value="useRecordValue<string>(modelValue)"
+        :model-value="modelValue as string"
         :name="field.key"
         :placeholder="field.placeholder"
         :error="!!error"
@@ -80,7 +84,7 @@ function handleBlur() {
       <ZInput
         v-else-if="field.variant === 'number'"
         type="number"
-        :model-value="useRecordValue<number>(modelValue)"
+        :model-value="modelValue as number"
         :name="field.key"
         :placeholder="field.placeholder"
         :error="!!error"
@@ -90,7 +94,7 @@ function handleBlur() {
       />
       <ZSelect
         v-else-if="field.variant === 'option'"
-        :model-value="useRecordValue<string>(modelValue)"
+        :model-value="modelValue as string"
         :name="field.key"
         :placeholder="field.placeholder"
         :items="field.options"
@@ -101,7 +105,7 @@ function handleBlur() {
       />
       <ZSwitch
         v-else-if="field.variant === 'switch'"
-        :checked="useRecordValue<boolean>(modelValue)"
+        :checked="modelValue as boolean"
         :name="field.key"
         :error="!!error"
         @update:checked="handleUpdate"
@@ -110,7 +114,7 @@ function handleBlur() {
       />
       <ZComposite
         v-else-if="field.variant === 'composite'"
-        :model-value="useRecordValue<CompositeValue>(modelValue)"
+        :model-value="modelValue as CompositeValue"
         :children="field.children"
         @focus="handleFocus"
         @blur="handleBlur"

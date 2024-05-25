@@ -1,10 +1,14 @@
 <script lang="ts">
+import type { IconAlias } from "../utils/icon";
 import {
   DropdownMenuRoot,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
 } from "radix-vue";
+import { useMenuUI, type MenuUI } from "../ui/menu.ui";
+import Button from "./button.vue";
+import Icon from "./icon.vue";
 
 export interface MenuItem<R extends string | number> {
   key: R;
@@ -46,13 +50,13 @@ function handleSelect(key: R) {
   <DropdownMenuRoot v-model:open="open">
     <DropdownMenuTrigger as-child>
       <slot name="trigger">
-        <ZButton
+        <Button
           variant="outlined"
           :prepend-icon="icon"
           :append-icon="open ? 'up' : 'down'"
         >
           {{ label }}
-        </ZButton>
+        </Button>
       </slot>
     </DropdownMenuTrigger>
     <DropdownMenuContent :class="ui.content()">
@@ -65,7 +69,7 @@ function handleSelect(key: R) {
               tabindex="0"
               @select="() => handleSelect(item.key)"
             >
-              <ZIcon v-if="item.icon" :icon="item.icon" />
+              <Icon v-if="item.icon" :icon="item.icon" />
               {{ item.label }}
             </DropdownMenuItem>
           </template>

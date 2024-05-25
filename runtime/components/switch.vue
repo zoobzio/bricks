@@ -6,6 +6,7 @@ import {
   SwitchThumb,
   useForwardPropsEmits,
 } from "radix-vue";
+import { useSwitchUI, type SwitchUI } from "../ui/switch.ui";
 
 export interface SwitchProps extends SwitchRootProps {
   ui?: Partial<SwitchUI>;
