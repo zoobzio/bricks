@@ -32,8 +32,8 @@
     "postinstall": "nuxi prepare example"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.10.0",
     "@typescript-eslint/parser": "^7.10.0",
-    "@vue/tsconfig": "^0.5.1",
     "bumpp": "^9.4.1",
     "eslint": "^9.3.0",
     "eslint-config-prettier": "^9.1.0",
