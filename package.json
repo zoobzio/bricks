@@ -2,6 +2,7 @@
   "name": "@zoobzio/ui",
   "type": "module",
   "license": "MIT",
+  "version": "0.0.1",
   "author": {
     "name": "Alex Thorwaldson",
     "email": "alex@zoobz.io",
@@ -25,11 +26,13 @@
   "scripts": {
     "dev": "nuxi dev example",
     "build": "unbuild .",
+    "release": "bumpp package.json --commit --push",
     "lint": "eslint .",
     "typecheck": "nuxi typecheck",
     "prepare": "nuxi prepare example"
   },
   "devDependencies": {
+    "bumpp": "^9.4.1",
     "eslint": "^9.2.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
