@@ -2,6 +2,7 @@
 import { useVModel } from "@vueuse/core";
 import { useTextareaUI, type TextareaUI } from "../ui/textarea.ui";
 import type { IconAlias } from "../utils/icon";
+import Icon from "./icon.vue";
 
 export interface TextareaProps {
   modelValue?: string;
@@ -42,7 +43,7 @@ function handleBlur() {
 <template>
   <div :class="ui.wrapper({ error })">
     <slot name="prepend" :icon="prependIcon">
-      <ZIcon v-if="prependIcon" :icon="prependIcon" />
+      <Icon v-if="prependIcon" :icon="prependIcon" />
     </slot>
     <textarea
       v-model="modelValue"
@@ -54,7 +55,7 @@ function handleBlur() {
       @blur="handleBlur"
     />
     <slot name="append" :icon="prependIcon">
-      <ZIcon v-if="prependIcon" :icon="prependIcon" />
+      <Icon v-if="prependIcon" :icon="prependIcon" />
     </slot>
   </div>
 </template>

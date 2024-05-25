@@ -15,6 +15,7 @@ import {
 } from "radix-vue";
 import { useCommandUI, type CommandUI } from "../ui/command.ui";
 import type { OptionData, Option } from "../utils/options";
+import Icon from "./icon.vue";
 
 export interface CommandProps<O extends Option> {
   placeholder?: string;
@@ -53,7 +54,7 @@ function handleSelect(option: string | number) {
 <template>
   <ComboboxRoot>
     <div :class="ui.inputWrapper()" cmdk-input-wrapper>
-      <ZIcon icon="search" />
+      <Icon icon="search" />
       <ComboboxInput auto-focus :class="ui.input()" />
     </div>
     <ComboboxContent :class="ui.list()" :dismissable="false">

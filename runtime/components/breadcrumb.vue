@@ -2,6 +2,9 @@
 import type { IconAlias } from "../utils/icon";
 import { useBreadcrumbUI, type BreadcrumbUI } from "../ui/breadcrumb.ui";
 import type { EnumData } from "../utils/enum";
+import { useRoute } from "#imports";
+import Button from "./button.vue";
+import Icon from "./icon.vue";
 
 export interface BreadcrumbProps {
   links: {
@@ -24,15 +27,15 @@ const ui = useBreadcrumbUI(props.ui)();
 <template>
   <nav :class="ui.nav()">
     <template v-for="(l, i) in links" :key="l.to">
-      <ZButton
+      <Button
         :to="l.to"
         variant="text"
         :disabled="l.to === route.path"
         :prepend-icon="l.icon"
       >
         {{ l.label }}
-      </ZButton>
-      <ZIcon v-if="i + 1 < links.length" icon="right" :class="ui.separator()" />
+      </Button>
+      <Icon v-if="i + 1 < links.length" icon="right" :class="ui.separator()" />
     </template>
   </nav>
 </template>

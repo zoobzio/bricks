@@ -4,6 +4,13 @@ import type { CompositeValue, RecordValue } from "../utils/record";
 import type { IconAlias } from "../utils/icon";
 import type { FormField } from "../utils/form";
 import { useFieldUI, type FieldUI } from "../ui/field.ui";
+import Label from "./label.vue";
+import Hint from "./hint.vue";
+import Input from "./input.vue";
+import Textarea from "./textarea.vue";
+import Select from "./select.vue";
+import Switch from "./switch.vue";
+import Composite from "./composite.vue";
 
 export interface FieldProps {
   modelValue?: RecordValue;
@@ -53,7 +60,7 @@ function handleBlur() {
     :style="`grid-column: span ${field.columns} / span ${field.columns};`"
     :class="ui"
   >
-    <ZLabel
+    <Label
       v-if="!compact"
       :for="field.key"
       :text="field.label"
@@ -61,7 +68,7 @@ function handleBlur() {
       :error="!!error"
     />
     <slot>
-      <ZInput
+      <Input
         v-if="field.variant === 'text'"
         :model-value="modelValue as string"
         :name="field.key"
@@ -71,7 +78,7 @@ function handleBlur() {
         @focus="handleFocus"
         @blur="handleBlur"
       />
-      <ZTextarea
+      <Textarea
         v-else-if="field.variant === 'textarea'"
         :model-value="modelValue as string"
         :name="field.key"
@@ -81,7 +88,7 @@ function handleBlur() {
         @focus="handleFocus"
         @blur="handleBlur"
       />
-      <ZInput
+      <Input
         v-else-if="field.variant === 'number'"
         type="number"
         :model-value="modelValue as number"
@@ -92,7 +99,7 @@ function handleBlur() {
         @focus="handleFocus"
         @blur="handleBlur"
       />
-      <ZSelect
+      <Select
         v-else-if="field.variant === 'option'"
         :model-value="modelValue as string"
         :name="field.key"
@@ -103,7 +110,7 @@ function handleBlur() {
         @focus="handleFocus"
         @blur="handleBlur"
       />
-      <ZSwitch
+      <Switch
         v-else-if="field.variant === 'switch'"
         :checked="modelValue as boolean"
         :name="field.key"
@@ -112,7 +119,7 @@ function handleBlur() {
         @focus="handleFocus"
         @blur="handleBlur"
       />
-      <ZComposite
+      <Composite
         v-else-if="field.variant === 'composite'"
         :model-value="modelValue as CompositeValue"
         :children="field.children"
@@ -120,6 +127,6 @@ function handleBlur() {
         @blur="handleBlur"
       />
     </slot>
-    <ZHint v-if="!compact" :text="field.hint" :error="error" />
+    <Hint v-if="!compact" :text="field.hint" :error="error" />
   </div>
 </template>

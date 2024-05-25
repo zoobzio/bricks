@@ -2,6 +2,7 @@
 import type { FormField } from "../utils/form";
 import type { CompositeValue } from "../utils/record";
 import { useCompositeUI, type CompositeUI } from "../ui/composite.ui";
+import Field from "./field.vue";
 
 export interface CompositeProps {
   modelValue: CompositeValue;
@@ -43,7 +44,7 @@ function handleBlur() {
   <div :class="ui">
     <template v-for="field in children" :key="field.key">
       <slot :name="field.key" :ui="ui">
-        <ZField
+        <Field
           v-model="modelValue[field.key]"
           v-model:error="errors[field.key]"
           :field="field"
