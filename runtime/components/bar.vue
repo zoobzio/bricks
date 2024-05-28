@@ -1,5 +1,6 @@
 <script lang="ts">
 import { useBarUI, type BarUI } from "../ui/bar.ui";
+import { useSlots } from "vue";
 import type { EnumData } from "../utils/enum";
 
 export interface BarProps {
