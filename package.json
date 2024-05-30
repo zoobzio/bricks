@@ -1,5 +1,5 @@
 {
-  "name": "@zoobzio/ui",
+  "name": "nuxt-ui-layer",
   "type": "module",
   "license": "MIT",
   "version": "0.0.7",
@@ -8,30 +8,16 @@
     "email": "alex@zoobz.io",
     "url": "https://zoobz.io"
   },
-  "sideEffects": false,
-  "exports": {
-    ".": {
-      "types": "./dist/module.d.ts",
-      "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs"
-    }
-  },
-  "main": "dist/module.cjs",
-  "module": "dist/module.mjs",
-  "types": "dist/module.d.ts",
-  "files": [
-    "dist",
-    "runtime"
-  ],
+  "main": "./nuxt.config.ts",
   "scripts": {
-    "dev": "nuxi dev example",
-    "build": "unbuild .",
+    "dev": "nuxi dev",
     "lint": "eslint .",
     "typecheck": "nuxi typecheck",
     "release": "bumpp package.json --commit --push",
-    "postinstall": "nuxi prepare example"
+    "postinstall": "nuxi prepare"
   },
   "devDependencies": {
+    "@types/eslint-config-prettier": "^6.11.3",
     "@typescript-eslint/eslint-plugin": "^7.10.0",
     "@typescript-eslint/parser": "^7.10.0",
     "bumpp": "^9.4.1",
@@ -41,11 +27,13 @@
     "nuxt": "^3.11.2",
     "prettier": "^3.2.5",
     "typescript": "^5.4.5",
-    "unbuild": "^2.0.0",
-    "vue-eslint-parser": "^9.4.2"
+    "vue": "^3.4.27",
+    "vue-eslint-parser": "^9.4.2",
+    "vue-router": "^4.3.2"
   },
   "dependencies": {
     "@iconify-json/fa6-solid": "^1.1.21",
+    "@nuxt/eslint": "^0.3.13",
     "@nuxt/kit": "^3.11.2",
     "@pinia/nuxt": "^0.5.1",
     "@unocss/nuxt": "^0.60.0",
@@ -61,7 +49,6 @@
     "unocss": "^0.60.0",
     "unocss-preset-untheme": "^0.0.37",
     "untheme": "^0.0.37",
-    "vue": "^3.4.27",
     "zod": "^3.23.8"
   }
 }

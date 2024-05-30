@@ -1,6 +1,6 @@
 # @zoobzio/ui
 
-🧰 A minimalist &amp; generic component library for Nuxt applications
+🧰 A minimalist &amp; generic component layer for full-stack Nuxt applications
 
 ## Documentation
 
@@ -9,9 +9,6 @@
 ## Develop
 
 ```sh
-# deps
 pnpm i
-# generate types
-pnpm build
-pnpm prepare
+pnpm dev
 ```
