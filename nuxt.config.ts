@@ -1,4 +1,5 @@
 import data from "./config/data.config";
+import icon from "./config/icon.config";
 import unocss from "./config/uno.config";
 
 export default defineNuxtConfig({
@@ -15,6 +16,7 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
   ],
   data,
+  icon,
   untheme: {
     config: "./config/untheme.config", // TODO fix this, should be relative to rootDir and w/o the file name
   },

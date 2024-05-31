@@ -1,5 +1,6 @@
-// TODO - icons should become their own module w/ a utility that generates types from all available icon sets from iconify
-const icons = {
+import { defineIconAliases } from "../src/modules/icon/config";
+
+export default defineIconAliases({
   nav: "i-fa6-solid-bars",
   create: "i-fa6-solid-plus",
   close: "i-fa6-solid-xmark",
@@ -16,7 +17,7 @@ const icons = {
   left: "i-fa6-solid-chevron-left",
   dropdown: "i-fa6-solid-angle-down",
   copy: "i-fa6-solid-copy",
-  share: "i-fa6-solid-share-all",
+  share: "i-fa6-solid-share",
   open: "i-fa6-solid-arrow-up-right-from-square",
   link: "i-fa6-solid-link",
   export: "i-fa6-solid-cloud-arrow-down",
@@ -47,10 +48,4 @@ const icons = {
   logout: "i-fa6-solid-door-open",
   example: "i-fa6-solid-rocket",
   // TODO: add more icons here...
-};
-
-export type IconAlias = keyof typeof icons;
-
-export function useIcon(alias: IconAlias) {
-  return icons[alias];
-}
+});

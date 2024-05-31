@@ -8,10 +8,13 @@ import {
   transformerVariantGroup,
 } from "unocss";
 import { presetUntheme } from "unocss-preset-untheme";
-import config from "./untheme.config";
+import untheme from "./untheme.config";
+import icons from "./icon.config";
 
 export default defineConfig({
   content: {
+    //    filesystem: ["**/config/*.config.ts"],
+    inline: [JSON.stringify(icons)],
     pipeline: {
       include: [/\.(vue|ts)($|\?)/],
     },
@@ -56,7 +59,7 @@ export default defineConfig({
       },
     }),
     presetUntheme({
-      config,
+      config: untheme,
       templates: {
         colors: /tw|primary|tonal|neutral|error(-(.*))/,
         spacing: /spacing-(.*)/,

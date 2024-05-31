@@ -1,4 +1,4 @@
-// @ts-expect-error unavailable until runtime
+// @ts-expect-error not available until runtime
 import config from "#build/constants.config.mjs";
 import type { Constants } from "#build/types/constants.d.ts";
 
