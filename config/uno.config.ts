@@ -9,12 +9,10 @@ import {
 } from "unocss";
 import { presetUntheme } from "unocss-preset-untheme";
 import untheme from "./untheme.config";
-import icons from "./icon.config";
 
 export default defineConfig({
   content: {
     //    filesystem: ["**/config/*.config.ts"],
-    inline: [JSON.stringify(icons)],
     pipeline: {
       include: [/\.(vue|ts)($|\?)/],
     },

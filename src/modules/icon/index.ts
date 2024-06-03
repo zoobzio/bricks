@@ -4,6 +4,7 @@ import {
   addTypeTemplate,
   addTemplate,
   addImportsDir,
+  installModule,
 } from "nuxt/kit";
 import type { IconAliasTemplate } from "./config";
 
@@ -18,6 +19,12 @@ export default defineNuxtModule<IconAliasTemplate>({
   },
   async setup(aliases) {
     const icons = JSON.stringify(aliases, null, 2);
+
+    installModule("@unocss/nuxt", {
+      content: {
+        inline: [icons],
+      },
+    });
 
     addTemplate({
       filename: "icons.config.mjs",

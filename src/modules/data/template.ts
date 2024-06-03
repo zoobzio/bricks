@@ -1,4 +1,4 @@
-import { defineNuxtData } from "../src/modules/data/config";
+import { defineNuxtData } from "./config";
 
 export default defineNuxtData({
   constants: {},
