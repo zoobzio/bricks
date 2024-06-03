@@ -1,7 +1,3 @@
-import type { EnumData } from "./enum";
-import type { OptionData, Option } from "./options";
-import type { IconAlias } from "./icon";
-
 export type Value =
   | string
   | string[]

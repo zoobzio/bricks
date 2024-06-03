@@ -1,7 +1,4 @@
 import type { ZodType } from "zod";
-import type { EnumData } from "./enum";
-import type { OptionData, Option } from "./options";
-import type { IconAlias } from "./icon";
 import type { RecordTemplate } from "./record";
 
 export type FormField = {

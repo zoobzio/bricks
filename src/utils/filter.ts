@@ -1,5 +1,3 @@
-import type { EnumData } from "./enum";
-
 export type Filter = EnumData<"filters">;
 
 export type FilterPayload = {

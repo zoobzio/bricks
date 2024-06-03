@@ -1,18 +1,7 @@
 <script lang="ts">
 import { Primitive, type PrimitiveProps } from "radix-vue";
 
-export const useIconUI = defineComponentUI({
-  base: "block",
-  variants: {
-    size: {
-      large: "size-sizing-icon-l",
-      medium: "size-sizing-icon-m",
-      small: "size-sizing-icon-s",
-    },
-  },
-});
-
-export type IconUI = Parameters<typeof useIconUI>[0];
+export type IconUI = UIOverride<"icon">;
 export type IconSize = EnumDataItem<"sizes">;
 
 export interface IconProps extends PrimitiveProps {

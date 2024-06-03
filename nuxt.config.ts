@@ -21,4 +21,5 @@ export default defineNuxtConfig({
     config: "./config/untheme.config", // TODO fix this, should be relative to rootDir and w/o the file name
   },
   unocss,
+  watch: ["./ui"],
 });
