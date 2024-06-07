@@ -1,5 +1,9 @@
 <script lang="ts">
-export type KbdUI = UIOverride<"kbd">;
+export const useKbdUI = defineComponentUI({
+  base: "rounded bg-neutral-bg-m text-neutral-fg-xh border border-neutral-fg-l text-sm px-spacing-2xs",
+});
+
+export type KbdUI = Parameters<typeof useKbdUI>[0];
 
 export interface KbdProps {
   label?: string;
