@@ -1,4 +1,4 @@
-# @zoobzio/ui
+# @zoobzio/foundation
 
 🧰 A minimalist &amp; generic component layer for full-stack Nuxt applications
 
