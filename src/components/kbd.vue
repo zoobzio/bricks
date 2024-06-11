@@ -1,6 +1,6 @@
 <script lang="ts">
 export const useKbdUI = defineComponentUI({
-  base: "rounded bg-neutral-bg-m text-neutral-fg-xh border border-neutral-fg-l text-sm px-spacing-2xs",
+  base: "flex items-center rounded bg-ui-outline-variant text-ui-on-surface border border-ui-outline text-xs px-spacing-2xs",
 });
 
 export type KbdUI = Parameters<typeof useKbdUI>[0];

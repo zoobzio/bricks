@@ -68,16 +68,18 @@ export default defineUnthemeConfig({
     "typesize-body-l": "1em",
   },
   themes: {
-    seerist: {
+    default: {
       ...referenceColorTokens("tw", "emerald", "primary", "-"),
       ...referenceColorTokens("tw", "stone", "neutral", "-"),
       ...referenceColorTokens("tw", "rose", "error", "-"),
+      "typeface-title": "typeface-archivo",
       "typeface-content": "typeface-inter",
     },
     example: {
       ...referenceColorTokens("tw", "indigo", "primary", "-"),
       ...referenceColorTokens("tw", "slate", "neutral", "-"),
       ...referenceColorTokens("tw", "red", "error", "-"),
+      "typeface-title": "typeface-inter",
       "typeface-content": "typeface-archivo",
     },
   },
@@ -92,6 +94,7 @@ export default defineUnthemeConfig({
       "ui-surface-container": "tw-neutral-800",
       "ui-on-surface-container": "tw-neutral-50",
       "ui-outline": "tw-neutral-700",
+      "ui-outline-variant": "tw-neutral-800",
     },
     light: {
       "ui-primary": "tw-primary-600",
@@ -103,6 +106,7 @@ export default defineUnthemeConfig({
       "ui-surface-container": "tw-neutral-200",
       "ui-on-surface-container": "ui-black",
       "ui-outline": "tw-neutral-300",
+      "ui-outline-variant": "tw-neutral-200",
     },
   },
   roles: {

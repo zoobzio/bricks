@@ -17,8 +17,8 @@ export const useButtonUI = defineComponentUI({
     hover: {
       primary: "hover:(bg-primary-bg-h)",
       tonal: "hover:(bg-tonal-bg-h text-tonal-fg-h)",
-      outlined: "hover:(bg-neutral-fg-l text-neutral-fg-xh)",
-      text: "hover:(bg-neutral-fg-xl text-neutral-fg-xh)",
+      outlined: "hover:(bg-ui-outline-variant)",
+      text: "hover:(bg-ui-outline-variant)",
       destructive: "hover:(bg-error-bg-m)",
     },
     disabled: {
@@ -66,14 +66,16 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   size: "medium",
 });
 
-const ui = useButtonUI(props.ui, {
-  variant: props.variant,
-  size: props.size,
-  icon: !!props.icon || props.asIcon,
-  active: !props.disabled ? props.variant : undefined,
-  hover: !props.disabled ? props.variant : undefined,
-  disabled: props.disabled ? props.variant : undefined,
-});
+const ui = computed(() =>
+  useButtonUI(props.ui, {
+    variant: props.variant,
+    size: props.size,
+    icon: !!props.icon || props.asIcon,
+    active: !props.disabled ? props.variant : undefined,
+    hover: !props.disabled ? props.variant : undefined,
+    disabled: props.disabled ? props.variant : undefined,
+  })
+);
 
 const buttonProps = {
   as: "button",

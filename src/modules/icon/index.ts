@@ -15,7 +15,7 @@ export default defineNuxtModule<IconAliasTemplate>({
   },
   defaults: {
     // example
-    home: "i-fa6-solid-house",
+    home: "i-ic-twotone-house",
   },
   async setup(aliases) {
     const icons = JSON.stringify(aliases, null, 2);

@@ -63,6 +63,7 @@ export default defineConfig({
         fontSize: /typesize-(.*)/,
         borderRadius: /shape-(.*)/,
         lineHeight: /line-(.*)/,
+        fontFamily: /typeface-(.*)/,
       },
     }),
   ],
