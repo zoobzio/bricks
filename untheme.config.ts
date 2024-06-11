@@ -32,7 +32,7 @@ export default defineUnthemeConfig({
         "yellow",
         "zinc",
       ],
-      "-"
+      "-",
     ),
     // spacing
     "spacing-2xs": "4px",

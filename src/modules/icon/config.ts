@@ -1,6 +1,4 @@
-import type {
-  ICIcon
-} from "./types/ic.d"
+import type { ICIcon } from "./types/ic.d";
 
 export type IconAliasTemplate = {
   [alias: string]: ICIcon;

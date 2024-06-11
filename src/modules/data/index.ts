@@ -31,7 +31,7 @@ export default defineNuxtModule<DataNuxtOptions>({
             `const ${key} = ${JSON.stringify(
               defu(config[key], template[key]),
               null,
-              2
+              2,
             )};`,
             `export default ${key};`,
           ].join("\n"),
@@ -43,7 +43,7 @@ export default defineNuxtModule<DataNuxtOptions>({
             `const ${key} = ${JSON.stringify(
               defu(config[key], template[key]),
               null,
-              2
+              2,
             )} as const;`,
             `export type ${
               key.charAt(0).toUpperCase() + key.slice(1)

@@ -74,7 +74,7 @@ const ui = computed(() =>
     active: !props.disabled ? props.variant : undefined,
     hover: !props.disabled ? props.variant : undefined,
     disabled: props.disabled ? props.variant : undefined,
-  })
+  }),
 );
 
 const buttonProps = {

@@ -31,7 +31,7 @@ const ui = computed(() =>
   useIconUI(props.ui, {
     size: props.size,
     class: useIcon(props.icon),
-  })
+  }),
 );
 </script>
 
