@@ -2,14 +2,14 @@
 import { Primitive } from "radix-vue";
 
 export const useButtonUI = defineComponentUI({
-  base: "rounded-shape-s flex items-center font-bold z-0 border border-transparent gap-spacing-xs px-spacing-xs py-spacing-2xs focus-visible:(ring-2 ring-sr-primary outline-none z-1)",
+  base: "rounded-shape-s flex items-center font-bold z-0 border border-transparent gap-spacing-xs px-spacing-xs py-spacing-2xs focus-visible:(ring-2 ring-ui-primary outline-none z-1)",
   variants: {
     variant: {
-      primary: "bg-sr-primary text-sr-on-primary",
-      tonal: "bg-sr-primary-tonal text-sr-on-primary-tonal",
-      outlined: "border-sr-outline",
+      primary: "bg-ui-primary text-ui-on-primary",
+      tonal: "bg-ui-primary-tonal text-ui-on-primary-tonal",
+      outlined: "border-ui-outline",
       text: "",
-      destructive: "bg-sr-error text-sr-on-error",
+      destructive: "bg-ui-error text-ui-on-error",
     },
     icon: {
       true: "justify-center aspect-square",

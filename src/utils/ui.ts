@@ -16,7 +16,7 @@ type TVIgnore = Record<string, never>;
 export type TVOverride<
   V extends TVVariants<S, B>,
   B extends ClassValue = undefined,
-  S extends TVSlots = undefined,
+  S extends TVSlots = undefined
 > = {
   slots?: S extends TVSlots
     ? {
@@ -40,7 +40,7 @@ export type ComponentUI = {
   <
     V extends TVVariants<S, B>,
     B extends ClassValue = undefined,
-    S extends TVSlots = undefined,
+    S extends TVSlots = undefined
   >(template: {
     base?: B;
     slots?: S;
@@ -49,7 +49,7 @@ export type ComponentUI = {
     compoundSlots?: TVCompoundSlots<V, S, B>;
   }): (
     override?: TVOverride<V, B, S>,
-    props?: TVProps<V, S, TVIgnore, TVIgnore, TVIgnore>,
+    props?: TVProps<V, S, TVIgnore, TVIgnore, TVIgnore>
   ) => ReturnType<TVReturnType<V, S, B, TVIgnore, TVIgnore, TVIgnore>>;
 };
 

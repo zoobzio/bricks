@@ -5,7 +5,7 @@ import {
   addTemplate,
   addImportsDir,
   installModule,
-} from "nuxt/kit";
+} from "@nuxt/kit";
 import type { IconAliasTemplate } from "./config";
 
 export default defineNuxtModule<IconAliasTemplate>({

@@ -4,8 +4,8 @@ import { useColorPack, referenceColorTokens } from "@untheme/colors";
 export default defineUnthemeConfig({
   tokens: {
     // colors
-    "sr-black": "#000",
-    "sr-white": "#FFF",
+    "ui-black": "#000",
+    "ui-white": "#FFF",
     ...useColorPack(
       "tw",
       [
@@ -32,7 +32,7 @@ export default defineUnthemeConfig({
         "yellow",
         "zinc",
       ],
-      "-",
+      "-"
     ),
     // spacing
     "spacing-2xs": "4px",
@@ -83,26 +83,26 @@ export default defineUnthemeConfig({
   },
   modes: {
     dark: {
-      "sr-primary": "tw-primary-500",
-      "sr-on-primary": "tw-primary-800",
-      "sr-primary-tonal": "tw-primary-300",
-      "sr-on-primary-tonal": "tw-primary-900",
-      "sr-surface": "tw-neutral-900",
-      "sr-on-surface": "tw-neutral-100",
-      "sr-surface-container": "tw-neutral-800",
-      "sr-on-surface-container": "tw-neutral-50",
-      "sr-outline": "tw-neutral-700",
+      "ui-primary": "tw-primary-500",
+      "ui-on-primary": "tw-primary-800",
+      "ui-primary-tonal": "tw-primary-300",
+      "ui-on-primary-tonal": "tw-primary-900",
+      "ui-surface": "tw-neutral-900",
+      "ui-on-surface": "tw-neutral-100",
+      "ui-surface-container": "tw-neutral-800",
+      "ui-on-surface-container": "tw-neutral-50",
+      "ui-outline": "tw-neutral-700",
     },
     light: {
-      "sr-primary": "tw-primary-600",
-      "sr-on-primary": "tw-primary-200",
-      "sr-primary-tonal": "tw-primary-700",
-      "sr-on-primary-tonal": "tw-primary-100",
-      "sr-surface": "tw-neutral-100",
-      "sr-on-surface": "tw-neutral-900",
-      "sr-surface-container": "tw-neutral-200",
-      "sr-on-surface-container": "sr-black",
-      "sr-outline": "tw-neutral-300",
+      "ui-primary": "tw-primary-600",
+      "ui-on-primary": "tw-primary-200",
+      "ui-primary-tonal": "tw-primary-700",
+      "ui-on-primary-tonal": "tw-primary-100",
+      "ui-surface": "tw-neutral-100",
+      "ui-on-surface": "tw-neutral-900",
+      "ui-surface-container": "tw-neutral-200",
+      "ui-on-surface-container": "ui-black",
+      "ui-outline": "tw-neutral-300",
     },
   },
   roles: {

@@ -12,7 +12,6 @@ import untheme from "./untheme.config";
 
 export default defineConfig({
   content: {
-    //    filesystem: ["**/config/*.config.ts"],
     pipeline: {
       include: [/\.(vue|ts)($|\?)/],
     },
@@ -59,7 +58,7 @@ export default defineConfig({
     presetUntheme({
       config: untheme,
       templates: {
-        colors: /tw|primary|tonal|neutral|error(-(.*))/,
+        colors: /ui|tw(-(.*))/,
         spacing: /spacing-(.*)/,
         fontSize: /typesize-(.*)/,
         borderRadius: /shape-(.*)/,
