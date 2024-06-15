@@ -1,8 +1,8 @@
 <script lang="ts">
 export const useBarUI = defineComponentUI({
   slots: {
-    wrapper: "border-b border-ui-outline backdrop-blur-xl",
-    inner: "grid grid-cols-4 py-spacing-xs",
+    wrapper: "border-b border-ui-outline bg-ui-surface-container",
+    inner: "py-spacing-xs",
     left: "flex items-center gap-spacing-xs",
     center: "flex items-center justify-center gap-spacing-xs w-full col-span-2",
     right: "flex items-center justify-end gap-spacing-xs ml-auto",
@@ -18,6 +18,14 @@ export const useBarUI = defineComponentUI({
         inner: "container mx-auto",
       },
     },
+    flexible: {
+      true: {
+        inner: "flex items center",
+      },
+      false: {
+        inner: "grid grid-cols-4",
+      },
+    },
   },
 });
 
@@ -26,18 +34,21 @@ export type BarUI = Parameters<typeof useBarUI>[0];
 export interface BarProps {
   container?: boolean;
   sticky?: boolean;
+  flexible?: boolean;
   ui?: BarUI;
 }
 </script>
 
 <script setup lang="ts">
 const props = withDefaults(defineProps<BarProps>(), {
-  container: true,
-  sticky: true,
+  container: false,
+  sticky: false,
+  flexible: false,
 });
 const ui = useBarUI(props.ui, {
   sticky: props.sticky,
   container: props.container,
+  flexible: props.flexible,
 });
 </script>
 

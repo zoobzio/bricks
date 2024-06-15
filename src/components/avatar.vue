@@ -3,8 +3,8 @@ import { AvatarImage, AvatarRoot, AvatarFallback } from "radix-vue";
 
 const useAvatarUI = defineComponentUI({
   slots: {
-    root: "rounded-full overflow-hidden bg-ui-primary-tonal",
-    image: "h-34px w-34px", // TODO make this a prop
+    root: "rounded-full overflow-hidden bg-ui-primary-tonal h-[34px] w-[34px]",
+    image: "h-full w-full rounded-[inherit] object-cover", // TODO make this a prop
     fallback: "bg-ui-primary-tonal",
   },
 });

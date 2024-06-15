@@ -1,12 +1,12 @@
-export type ConstantTemplate = {
+export type ConstantConfig = {
   [key: string]: string | number;
 };
 
-export type EnumTemplate = {
+export type EnumConfig = {
   [key: string]: string[] | number[];
 };
 
-export type OptionTemplate = {
+export type OptionConfig = {
   [key: string]: {
     key: string | number;
     label: string;
@@ -15,9 +15,9 @@ export type OptionTemplate = {
 
 export interface NuxtData {
   <
-    C extends ConstantTemplate,
-    E extends EnumTemplate,
-    O extends OptionTemplate,
+    C extends ConstantConfig,
+    E extends EnumConfig,
+    O extends OptionConfig
   >(data: {
     constants: C;
     enums: E;

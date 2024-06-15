@@ -28,7 +28,6 @@
     "nuxt": "^3.11.2",
     "prettier": "^3.2.5",
     "typescript": "^5.4.5",
-    "vue": "^3.4.29",
     "vue-eslint-parser": "^9.4.2",
     "vue-router": "^4.3.2"
   },
@@ -40,6 +39,7 @@
     "@pinia/nuxt": "^0.5.1",
     "@unocss/nuxt": "^0.60.0",
     "@untheme/colors": "^0.0.38",
+    "@untheme/kit": "^0.0.38",
     "@untheme/nuxt": "^0.0.38",
     "@vueuse/core": "^10.9.0",
     "@vueuse/nuxt": "^10.9.0",
@@ -52,10 +52,5 @@
     "unocss-preset-untheme": "^0.0.38",
     "untheme": "^0.0.38",
     "zod": "^3.23.8"
-  },
-  "pnpm": {
-    "overrides": {
-      "vue": "$vue"
-    }
   }
 }

@@ -7,7 +7,7 @@ export const useButtonUI = defineComponentUI({
     variant: {
       primary: "bg-ui-primary text-ui-on-primary",
       tonal: "bg-ui-primary-tonal text-ui-on-primary-tonal",
-      outlined: "border-ui-outline",
+      outlined: "border-ui-outline bg-ui-surface",
       text: "",
       destructive: "bg-ui-error text-ui-on-error",
     },
@@ -42,13 +42,7 @@ export interface ButtonProps {
   disabled?: boolean;
   variant?: ButtonVariant;
   size?: ButtonSize;
-  link?: {
-    label: string;
-    to: string;
-    target?: EnumData<"targets">;
-    icon?: IconAlias;
-    external?: boolean;
-  };
+  link?: Link;
   icon?: IconAlias;
   asIcon?: boolean;
   prependIcon?: IconAlias;

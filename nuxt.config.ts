@@ -1,5 +1,5 @@
-import unocss from "./uno.config";
-import untheme from "./untheme.config";
+import unocss from "./config/uno.config";
+import untheme from "./config/untheme.config";
 
 export default defineNuxtConfig({
   srcDir: "src/",
