@@ -54,6 +54,7 @@ export interface ButtonProps {
   prependIcon?: IconAlias;
   appendIcon?: IconAlias;
   ui?: ButtonUI;
+  shortcut?: string;
 }
 </script>
 
@@ -66,6 +67,8 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   size: "medium",
 });
 
+const button = ref<InstanceType<typeof Primitive> | null>(null);
+
 const ui = computed(() =>
   useButtonUI(props.ui, {
     variant: props.variant,
@@ -74,7 +77,7 @@ const ui = computed(() =>
     active: !props.disabled ? props.variant : undefined,
     hover: !props.disabled ? props.variant : undefined,
     disabled: props.disabled ? props.variant : undefined,
-  }),
+  })
 );
 
 const buttonProps = {
@@ -89,6 +92,16 @@ const linkProps = {
 };
 
 const NuxtLink = defineNuxtLink({});
+
+if (props.shortcut) {
+  const keys = useMagicKeys();
+  const shortcut = keys[props.shortcut];
+  watch(shortcut, (active) => {
+    if (active && button.value) {
+      button.value.$el.click();
+    }
+  });
+}
 </script>
 
 <template>
@@ -97,6 +110,7 @@ const NuxtLink = defineNuxtLink({});
     v-bind="!link ? buttonProps : linkProps"
     :disabled="disabled"
     :class="ui"
+    ref="button"
   >
     <slot v-if="!icon" name="prepend">
       <Icon v-if="prependIcon" :icon="prependIcon" :size="size" />

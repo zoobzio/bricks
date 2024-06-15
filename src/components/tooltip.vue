@@ -8,7 +8,7 @@ import {
 
 export const useTooltipUI = defineComponentUI({
   slots: {
-    tip: "font-light text-sm rounded flex items-center gap-spacing-xs px-spacing-xs py-spacing-2xs bg-ui-surface text-ui-on-surface-container border border-ui-outline",
+    tip: "text-sm rounded flex items-center gap-spacing-xs px-spacing-xs py-spacing-2xs bg-ui-surface text-ui-on-surface-container border border-ui-outline",
   },
 });
 

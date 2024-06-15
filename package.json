@@ -2,7 +2,7 @@
   "name": "@zoobzio/foundation",
   "type": "module",
   "license": "MIT",
-  "version": "0.0.7",
+  "version": "0.0.1",
   "author": {
     "name": "Alex Thorwaldson",
     "email": "alex@zoobz.io",
@@ -28,7 +28,7 @@
     "nuxt": "^3.11.2",
     "prettier": "^3.2.5",
     "typescript": "^5.4.5",
-    "vue": "^3.4.27",
+    "vue": "^3.4.29",
     "vue-eslint-parser": "^9.4.2",
     "vue-router": "^4.3.2"
   },
@@ -52,5 +52,10 @@
     "unocss-preset-untheme": "^0.0.38",
     "untheme": "^0.0.38",
     "zod": "^3.23.8"
+  },
+  "pnpm": {
+    "overrides": {
+      "vue": "$vue"
+    }
   }
 }
