@@ -1,3 +1,4 @@
+// ic collection is too large to infer types, declare statically
 export type ICIcon =
   | "i-ic-baseline-10k"
   | "i-ic-baseline-10mp"

@@ -5,14 +5,14 @@ import {
   addImportsDir,
   addTypeTemplate,
 } from "@nuxt/kit";
-import type { ConstantTemplate, EnumTemplate, OptionTemplate } from "./config";
+import type { ConstantConfig, EnumConfig, OptionConfig } from "./config";
 import template from "./template";
 import { defu } from "defu";
 
 interface DataNuxtOptions {
-  constants?: ConstantTemplate & Partial<typeof template.constants>;
-  enums?: EnumTemplate & Partial<typeof template.enums>;
-  options?: OptionTemplate & Partial<typeof template.options>;
+  constants?: ConstantConfig & Partial<typeof template.constants>;
+  enums?: EnumConfig & Partial<typeof template.enums>;
+  options?: OptionConfig & Partial<typeof template.options>;
 }
 
 export default defineNuxtModule<DataNuxtOptions>({
@@ -31,7 +31,7 @@ export default defineNuxtModule<DataNuxtOptions>({
             `const ${key} = ${JSON.stringify(
               defu(config[key], template[key]),
               null,
-              2,
+              2
             )};`,
             `export default ${key};`,
           ].join("\n"),
@@ -43,7 +43,7 @@ export default defineNuxtModule<DataNuxtOptions>({
             `const ${key} = ${JSON.stringify(
               defu(config[key], template[key]),
               null,
-              2,
+              2
             )} as const;`,
             `export type ${
               key.charAt(0).toUpperCase() + key.slice(1)

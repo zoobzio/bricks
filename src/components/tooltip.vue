@@ -15,12 +15,16 @@ export const useTooltipUI = defineComponentUI({
 export type TooltipUI = Parameters<typeof useTooltipUI>[0];
 
 export interface TooltipProps {
+  icon?: IconAlias;
   ui?: TooltipUI;
 }
 </script>
 
 <script setup lang="ts">
-const props = defineProps<TooltipProps>();
+const props = withDefaults(defineProps<TooltipProps>(), { icon: "info" });
+const emits = defineEmits<{
+  click: [MouseEvent];
+}>();
 const ui = useTooltipUI(props.ui);
 </script>
 
@@ -31,6 +35,7 @@ const ui = useTooltipUI(props.ui);
         <slot />
       </TooltipTrigger>
       <TooltipContent :side-offset="6" :class="ui.tip()">
+        <Icon :icon="icon" />
         <slot name="tip" />
       </TooltipContent>
     </TooltipRoot>

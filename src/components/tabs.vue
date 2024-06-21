@@ -1,18 +1,10 @@
 <script lang="ts">
-import {
-  TabsContent,
-  TabsIndicator,
-  TabsList,
-  TabsRoot,
-  TabsTrigger,
-} from "radix-vue";
+import { TabsContent, TabsList, TabsRoot, TabsTrigger } from "radix-vue";
 
 export const useTabsUI = defineComponentUI({
   slots: {
     wrapper: "px-spacing-m flex items-center gap-spacing-xs",
     tab: "",
-    indicator:
-      "absolute bg-ui-primary-tonal left-0 h-[2px] bottom-0 w-[--radix-tabs-indicator-size] translate-x-[--radix-tabs-indicator-position] rounded-full transition-[width,transform] duration-300",
   },
 });
 
@@ -32,14 +24,16 @@ export interface TabsProps<Tab extends TabTemplate> {
 
 <script setup lang="ts" generic="Tab extends TabTemplate">
 const props = withDefaults(defineProps<TabsProps<Tab>>(), { tabs: () => [] });
+const emits = defineEmits<{
+  "update:modelValue": [Tab["key"]];
+}>();
 const ui = useTabsUI(props.ui);
-const active = ref("blog");
+const modelValue = useVModel(props, "modelValue", emits);
 </script>
 
 <template>
-  <TabsRoot v-model="active">
+  <TabsRoot v-model="modelValue">
     <TabsList :class="ui.wrapper()">
-      <TabsIndicator :class="ui.indicator()" />
       <TabsTrigger
         v-for="t in tabs"
         :key="`${t.key}-trigger`"
@@ -49,9 +43,10 @@ const active = ref("blog");
         <slot name="trigger" :tab="t">
           <Button
             variant="text"
-            :link="link"
-            :prepend-icon="t.icon ?? t.link?.icon"
+            :link="t.link"
+            :prepend-icon="t.icon"
             :label="t.label"
+            :tabindex="undefined"
           />
         </slot>
       </TabsTrigger>

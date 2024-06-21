@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     "@untheme/nuxt",
     "@vueuse/nuxt",
     "@nuxt/eslint",
+    "@nuxtjs/i18n",
   ],
   unocss,
   untheme,

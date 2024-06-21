@@ -10,7 +10,7 @@ export const useBarUI = defineComponentUI({
   variants: {
     sticky: {
       true: {
-        wrapper: "sticky top-0",
+        wrapper: "sticky top-0 z-10",
       },
     },
     container: {

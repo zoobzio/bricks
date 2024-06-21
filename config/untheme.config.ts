@@ -70,6 +70,7 @@ export default defineUnthemeConfig({
   themes: {
     default: {
       ...referenceColorTokens("tw", "emerald", "primary", "-"),
+      ...referenceColorTokens("tw", "cyan", "secondary", "-"),
       ...referenceColorTokens("tw", "stone", "surface", "-"),
       ...referenceColorTokens("tw", "rose", "error", "-"),
       "typeface-title": "typeface-archivo",
@@ -77,6 +78,7 @@ export default defineUnthemeConfig({
     },
     example: {
       ...referenceColorTokens("tw", "indigo", "primary", "-"),
+      ...referenceColorTokens("tw", "fuchsia", "secondary", "-"),
       ...referenceColorTokens("tw", "slate", "surface", "-"),
       ...referenceColorTokens("tw", "red", "error", "-"),
       "typeface-title": "typeface-inter",

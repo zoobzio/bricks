@@ -32,15 +32,16 @@
     "vue-router": "^4.3.2"
   },
   "dependencies": {
-    "@iconify-json/fa6-solid": "^1.1.21",
+    "@iconify-json/circle-flags": "^1.1.47",
     "@iconify-json/ic": "^1.1.17",
     "@nuxt/eslint": "^0.3.13",
     "@nuxt/kit": "^3.11.2",
+    "@nuxtjs/i18n": "^8.3.1",
     "@pinia/nuxt": "^0.5.1",
     "@unocss/nuxt": "^0.60.0",
-    "@untheme/colors": "^0.0.38",
-    "@untheme/kit": "^0.0.38",
-    "@untheme/nuxt": "^0.0.38",
+    "@untheme/colors": "^0.0.39",
+    "@untheme/kit": "^0.0.39",
+    "@untheme/nuxt": "^0.0.39",
     "@vueuse/core": "^10.9.0",
     "@vueuse/nuxt": "^10.9.0",
     "defu": "^6.1.4",
@@ -49,8 +50,8 @@
     "tailwind-merge": "^2.3.0",
     "tailwind-variants": "^0.2.1",
     "unocss": "^0.60.0",
-    "unocss-preset-untheme": "^0.0.38",
-    "untheme": "^0.0.38",
+    "unocss-preset-untheme": "^0.0.39",
+    "untheme": "^0.0.39",
     "zod": "^3.23.8"
   }
 }

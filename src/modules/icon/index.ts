@@ -7,18 +7,16 @@ import {
   installModule,
 } from "@nuxt/kit";
 import type { IconAliasTemplate } from "./config";
+import template from "./template";
+import { defu } from "defu";
 
-export default defineNuxtModule<IconAliasTemplate>({
+export default defineNuxtModule<Partial<typeof template> & IconAliasTemplate>({
   meta: {
     name: "@zoobzio/icon",
     configKey: "icon",
   },
-  defaults: {
-    // example
-    home: "i-ic-twotone-house",
-  },
   async setup(aliases) {
-    const icons = JSON.stringify(aliases, null, 2);
+    const icons = JSON.stringify(defu(aliases, template), null, 2);
 
     installModule("@unocss/nuxt", {
       content: {
