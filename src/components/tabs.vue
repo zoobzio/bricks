@@ -34,17 +34,12 @@ const modelValue = useVModel(props, "modelValue", emits);
 <template>
   <TabsRoot v-model="modelValue">
     <TabsList :class="ui.wrapper()">
-      <TabsTrigger
-        v-for="t in tabs"
-        :key="`${t.key}-trigger`"
-        :value="t.key"
-        as-child
-      >
+      <TabsTrigger v-for="t in tabs" :key="t.key" :value="t.key" as-child>
         <slot name="trigger" :tab="t">
           <Button
             variant="text"
-            :link="t.link"
             :prepend-icon="t.icon"
+            :link="t.link"
             :label="t.label"
             :tabindex="undefined"
           />

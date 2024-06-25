@@ -11,7 +11,7 @@ import {
 
 export const useDialogUI = defineComponentUI({
   slots: {
-    contentOverlay: "fixed inset-0 z-50 backdrop-blur-sm",
+    contentOverlay: "fixed inset-0 z-50 backdrop-blur",
     content:
       "fixed left-1/2 top-1/2 z-50 text-ui-on-surface-container rounded w-full max-w-lg -translate-x-1/2 -translate-y-1/2 border border-ui-outline bg-ui-surface-container pa-spacing-m flex flex-col gap-spacing-m",
   },

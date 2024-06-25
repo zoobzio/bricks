@@ -6,6 +6,7 @@ import {
   presetWebFonts,
   transformerDirectives,
   transformerVariantGroup,
+  transformerCompileClass,
 } from "unocss";
 import { presetUntheme } from "unocss-preset-untheme";
 import untheme from "./untheme.config";
@@ -72,5 +73,6 @@ export default defineConfig({
       applyVariable: ["--apply"],
     }),
     transformerVariantGroup(),
+    transformerCompileClass(),
   ],
 });
