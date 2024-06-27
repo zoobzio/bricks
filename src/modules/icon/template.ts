@@ -9,6 +9,7 @@ export default defineIconAliases({
   theme: "i-ic-twotone-color-lens",
   translate: "i-ic-twotone-translate",
   search: "i-ic-twotone-search",
+  blog: "i-ic-twotone-history-edu",
   // common
   up: "i-ic-twotone-keyboard-arrow-up",
   right: "i-ic-twotone-keyboard-arrow-right",
@@ -18,4 +19,6 @@ export default defineIconAliases({
   en: "i-circle-flags-us",
   es: "i-circle-flags-mx",
   fr: "i-circle-flags-fr",
+  // logos
+  github: "i-simple-icons-github",
 });

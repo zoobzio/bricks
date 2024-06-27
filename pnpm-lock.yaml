@@ -11,6 +11,9 @@ dependencies:
   '@iconify-json/ic':
     specifier: ^1.1.17
     version: 1.1.17
+  '@iconify-json/simple-icons':
+    specifier: ^1.1.107
+    version: 1.1.107
   '@nuxt/eslint':
     specifier: ^0.3.13
     version: 0.3.13(eslint@9.5.0)(nuxt@3.12.1)(rollup@4.18.0)(typescript@5.4.5)(vite@5.3.1)
@@ -1013,6 +1016,12 @@ packages:
 
   /@iconify-json/ic@1.1.17:
     resolution: {integrity: sha512-EvAjZzVESmN36zlyefylePUNaU2BQ3eRKVZ6KQSQ2bG01ppoZaiFZRri74VTyvp5Mlv2yn68ux1fgCoT+etGmA==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: false
+
+  /@iconify-json/simple-icons@1.1.107:
+    resolution: {integrity: sha512-IEIekNX+KsA/xOjTCxgdSDe6OJ1rOpio5CJ8GgCiyFZYSkPG1FPTFJIYGT95qh+HvnLAHqtKqZT53vDfyNl8fQ==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: false

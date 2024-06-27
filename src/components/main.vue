@@ -1,8 +1,8 @@
 <script lang="ts">
 export const useMainUI = defineComponentUI({
   slots: {
-    body: "bg-ui-surface text-ui-on-surface overscroll-none",
-    main: "min-h-screen",
+    body: ":ui: bg-ui-surface text-ui-on-surface overscroll-none",
+    main: ":ui: min-h-screen",
   },
 });
 
@@ -29,3 +29,9 @@ useHead({
     <slot />
   </main>
 </template>
+
+<style>
+::selection {
+  --apply: "bg-ui-secondary";
+}
+</style>

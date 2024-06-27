@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { Primitive } from 'radix-vue';
+import { Primitive } from "radix-vue";
+import type { PrimitiveProps } from "radix-vue";
 
 const useCardUI = defineComponentUI({
   slots: {
@@ -9,22 +10,21 @@ const useCardUI = defineComponentUI({
 
 export type CardUI = Parameters<typeof useCardUI>[0];
 
-export interface CardProps {
+export interface CardProps extends PrimitiveProps {
   ui?: CardUI;
+  extend?: {
+    [K in "card"]: string;
+  };
 }
 </script>
 
 <script setup lang="ts">
-  const props = defineProps<CardProps>();
-  const ui = useCardUI(props.ui);
-</script>
-
+const props = withDefaults(defineProps<CardProps>(), { as: "div" });
+const ui = useCardUI(props.ui);
 </script>
 
 <template>
-  <Primitive as="div" :class="ui.card()">
-    <slot>
-
-    </slot>
+  <Primitive :as="as" :class="ui.card({ class: extend?.card })">
+    <slot />
   </Primitive>
 </template>

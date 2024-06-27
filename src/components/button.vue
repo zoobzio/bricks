@@ -15,18 +15,21 @@ export const useButtonUI = defineComponentUI({
       true: "justify-center aspect-square",
     },
     hover: {
-      primary: "hover:(bg-primary-bg-h)",
-      tonal: "hover:(bg-tonal-bg-h text-tonal-fg-h)",
+      primary: "hover:(bg-ui-primary-tonal text-ui-on-primary-tonal)",
+      tonal: "hover:(bg-ui-primary text-ui-on-primary)",
       outlined: "hover:(bg-ui-outline-variant)",
       text: "hover:(bg-ui-outline-variant)",
       destructive: "hover:(bg-error-bg-m)",
     },
     disabled: {
-      primary: "disabled:(bg-neutral-bg-l text-neutral-fg-m)",
-      tonal: "disabled:(bg-neutral-bg-l text-neutral-fg-m)",
-      outlined: "disabled:(text-neutral-fg-l border-neutral-fg-l)",
-      text: "disabled:(text-neutral-fg-l)",
-      destructive: "disabled:(bg-neutral-bg-l text-neutral-fg-m)",
+      primary: "disabled:(opacity-40)",
+      tonal: "disabled:(opacity-40)",
+      outlined: "disabled:(opacity-40)",
+      text: "disabled:(opacity-40)",
+      destructive: "disabled:(opacity-40)",
+    },
+    grow: {
+      true: "w-full",
     },
   },
 });
@@ -48,7 +51,9 @@ export interface ButtonProps {
   prependIcon?: IconAlias;
   appendIcon?: IconAlias;
   ui?: ButtonUI;
+  extend?: string;
   shortcut?: string;
+  grow?: boolean;
 }
 </script>
 
@@ -59,6 +64,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   disabled: false,
   variant: "primary",
   size: "medium",
+  grow: false,
 });
 
 const button = ref<InstanceType<typeof Primitive> | null>(null);
@@ -71,6 +77,8 @@ const ui = computed(() =>
     active: !props.disabled ? props.variant : undefined,
     hover: !props.disabled ? props.variant : undefined,
     disabled: props.disabled ? props.variant : undefined,
+    grow: props.grow,
+    class: props.extend,
   })
 );
 
@@ -100,8 +108,8 @@ if (props.shortcut) {
 
 <template>
   <Primitive
-    :as="!link ? 'button' : NuxtLink"
-    v-bind="!link ? buttonProps : linkProps"
+    :as="link && !disabled ? NuxtLink : 'button'"
+    v-bind="link && !disabled ? linkProps : buttonProps"
     :disabled="disabled"
     :class="ui"
     ref="button"
@@ -113,8 +121,10 @@ if (props.shortcut) {
       {{ label }}
     </slot>
     <Icon v-else :icon="icon" :size="size" />
-    <slot v-if="!icon" name="append">
-      <Icon v-if="appendIcon" :icon="appendIcon" :size="size" />
-    </slot>
+    <span v-if="!icon && $slots.append" class="ml-auto">
+      <slot v-if="!icon" name="append">
+        <Icon v-if="appendIcon" :icon="appendIcon" :size="size" />
+      </slot>
+    </span>
   </Primitive>
 </template>

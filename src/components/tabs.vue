@@ -23,6 +23,7 @@ export interface TabsProps<Tab extends TabTemplate> {
 </script>
 
 <script setup lang="ts" generic="Tab extends TabTemplate">
+const route = useRoute();
 const props = withDefaults(defineProps<TabsProps<Tab>>(), { tabs: () => [] });
 const emits = defineEmits<{
   "update:modelValue": [Tab["key"]];
@@ -42,6 +43,12 @@ const modelValue = useVModel(props, "modelValue", emits);
             :link="t.link"
             :label="t.label"
             :tabindex="undefined"
+            :extend="
+              t.key === modelValue ||
+              (t.link && route.path.startsWith(t.link?.to))
+                ? 'text-ui-primary'
+                : ''
+            "
           />
         </slot>
       </TabsTrigger>

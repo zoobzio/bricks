@@ -1,8 +1,12 @@
 import type { ICIcon } from "./types/ic.d";
-import { icons } from "@iconify-json/circle-flags/icons.json";
+import type { SimpleIcons } from "./types/simple";
+import fa from "@iconify-json/circle-flags/icons.json";
 
 export type IconAliasTemplate = {
-  [alias: string]: ICIcon | `i-circle-flags-${keyof typeof icons}`;
+  [alias: string]:
+    | ICIcon
+    | SimpleIcons
+    | `i-circle-flags-${keyof typeof fa.icons}`;
 };
 
 export function defineIconAliases<A extends IconAliasTemplate>(aliases: A) {

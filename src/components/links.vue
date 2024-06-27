@@ -2,7 +2,7 @@
 const useLinksUI = defineComponentUI({
   slots: {
     wrapper: "flex flex-col",
-    link: "text-ui-on-surface py-spacing-2xs px-spacing-m opacity-60 data-[active=false]:hover:(opacity-100 border-ui-on-surface) data-[active=true]:(opacity-100 border-ui-primary) border-l-[2px] border-ui-outline outline-none focus-visible:(ring-2 ring-ui-primary rounded opacity-100)",
+    link: "text-ui-on-surface py-spacing-2xs px-spacing-m opacity-60 hover:(rounded-r bg-ui-outline-variant) data-[active=false]:hover:(opacity-100 border-ui-on-surface) data-[active=true]:(opacity-100 border-ui-primary) border-l-[2px] border-ui-outline outline-none focus-visible:(ring-2 ring-ui-primary rounded opacity-100)",
   },
 });
 

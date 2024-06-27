@@ -23,29 +23,32 @@ export default defineConfig({
     presetTypography({
       cssExtend: {
         h1: {
-          "--apply": "text-neutral-fg-xh font-typesize-heading-1",
+          "--apply": "font-typesize-heading-1 my-spacing-m",
         },
         h2: {
-          "--apply": "text-neutral-fg-xh font-typesize-heading-2",
+          "--apply": "font-typesize-heading-2 mt-spacing-l mb-spacing-m",
         },
         h3: {
-          "--apply": "text-neutral-fg-xh font-typesize-heading-3",
+          "--apply": "font-typesize-heading-3",
         },
         h4: {
-          "--apply": "text-neutral-fg-xh font-typesize-heading-4",
+          "--apply": "font-typesize-heading-4",
         },
         h5: {
-          "--apply": "text-neutral-fg-xh font-typesize-heading-5",
+          "--apply": "font-typesize-heading-5",
         },
         h6: {
-          "--apply": "text-neutral-fg-xh font-typesize-heading-6",
+          "--apply": "font-typesize-heading-6",
         },
         p: {
-          "--apply": "text-neutral-fg-h font-typesize-body-m",
+          "--apply": "font-typesize-body-m",
         },
         a: {
           "--apply":
-            "text-neutral-fg-h font-typesize-body-m hover:(text-primary-bg-m)",
+            "font-typesize-body-m no-underline hover:(text-ui-primary)",
+        },
+        pre: {
+          "--apply": "rounded border border-ui-outline bg-ui-surface-container",
         },
       },
     }),
@@ -73,6 +76,9 @@ export default defineConfig({
       applyVariable: ["--apply"],
     }),
     transformerVariantGroup(),
-    transformerCompileClass(),
+    transformerCompileClass({
+      trigger: /(["'`]):ui(?:-)?(?<name>[^\s\1]+)?:\s([^\1]*?)\1/g,
+      classPrefix: "ui-",
+    }),
   ],
 });

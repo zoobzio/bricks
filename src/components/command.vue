@@ -16,7 +16,7 @@ export const useCommandUI = defineComponentUI({
     groupLabel:
       "font-bold text-sm text-ui-on-surface opacity-75 px-spacing-xs py-spacing-2xs",
     content: "max-h-[300px] overflow-y-auto overflow-x-hidden",
-    item: "relative flex items-center gap-spacing-xs text-nowrap cursor-pointer rounded outline-none px-spacing-xs py-spacing-2xs data-[highlighted]:(bg-ui-outline-variant) data-[disabled]:(opacity-50 pointer-events-none)",
+    item: "relative flex items-center gap-spacing-xs text-nowrap cursor-pointer rounded outline-none px-spacing-xs py-spacing-2xs border border-transparent data-[highlighted]:(bg-ui-outline-variant border-ui-outline) data-[disabled]:(opacity-50 pointer-events-none)",
   },
 });
 
