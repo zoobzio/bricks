@@ -9,7 +9,7 @@ export default defineNuxtData({
     columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     targets: ["_blank", "_self"],
     pageSizes: [5, 10, 25, 50, 100],
-    colors: ["primary", "secondary", "surface", "error"],
+    colors: ["primary", "secondary", "tertiary", "surface", "error"],
     // records
     recordVariants: [
       "text",

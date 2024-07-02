@@ -26,7 +26,7 @@ export default defineConfig({
           "--apply": "font-typesize-heading-1 my-spacing-m",
         },
         h2: {
-          "--apply": "font-typesize-heading-2 mt-spacing-l mb-spacing-m",
+          "--apply": "font-typesize-heading-2 mt-spacing-xl mb-spacing-m",
         },
         h3: {
           "--apply": "font-typesize-heading-3",
@@ -50,6 +50,23 @@ export default defineConfig({
         pre: {
           "--apply": "rounded border border-ui-outline bg-ui-surface-container",
         },
+        table: {
+          "--apply": "table table-auto w-full border-separate border-spacing-0",
+        },
+        thead: {
+          "--apply":
+            "border border-ui-outline bg-ui-surface-container overflow-hidden",
+        },
+        tbody: {
+          "--apply": "border-b border-x border-ui-outline",
+        },
+        tr: {
+          "--apply": "w-full",
+        },
+        th: {
+          "--apply":
+            "not-prose text-left border-y border-ui-outline first:(rounded-tl border-l) last:(rounded-tr border-r)",
+        },
       },
     }),
     presetWebFonts({
@@ -62,7 +79,7 @@ export default defineConfig({
     presetUntheme({
       config: untheme,
       templates: {
-        colors: /ui|tw(-(.*))/,
+        colors: /ui|tw|shiki(-(.*))/,
         spacing: /spacing-(.*)/,
         fontSize: /typesize-(.*)/,
         borderRadius: /shape-(.*)/,
